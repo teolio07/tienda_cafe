@@ -1,18 +1,22 @@
+//Dependencias
 const express = require('express');
 const app = express();
 require('dotenv').config()
 
-require('./database/db')
 
-const routerApi = require('./routes')
-const Product = require('./models/product')
+//Environment variables
 const port = process.env.PORT || 3001
+
+//modules
+require('./database/db')
+const routerApi = require('./routes')
+
+//settings
+app.use(express.static("public"))
 app.use(express.json())
 
-app.get('/',(req,res)=>{
-    res.send('hello from root')
-})
 
+//routes
 routerApi(app);
 
 app.listen(port,()=> {console.log(`Running API port ${port}`)})
