@@ -1,18 +1,35 @@
-const {insertProduct} = require('../services/productsServices')
-const newProduct = async (req,res)=>{
-    const body = req.body
-    console.log(body)
-    try{
-        let name = body.name
-        let picture = body.picture
-        let price = body.price
-        let category = body.category
-        insertProduct(name, picture, price, category) 
-        res.send('producto creado')
+const productsService = require('./../services/productsServices') 
+const service = new productsService
+
+const getProducts = async (req,res)=>{
+    try{  
+        const getProducts = service.getProducts() 
+        getProducts.then((res)=>{ 
+            console.log(res)
+        })
+        res.json(getProducts)
     }
     catch(error){
         console.log(error)
+        res.send('algo salio mal')
     }
 }
 
-module.exports = {newProduct};
+
+const getProduct= async(req,res)=>{ 
+    try{ 
+        const { productId  } = req.params
+        const getProduct = service.getProduct(productId)            
+        getProduct.then((result)=>{ 
+            console.log(result)
+        })
+        res.json(getProduct)
+    } 
+    catch(error){ 
+        console.log('error get product by id')
+        res.send('error get product by id')
+    }
+}
+
+
+module.exports = {getProducts, getProduct}

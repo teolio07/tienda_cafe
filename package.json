@@ -15,6 +15,7 @@
     "mongoose": "^6.3.8"
   },
   "devDependencies": {
+    "nanoid": "^4.0.0",
     "nodemon": "^2.0.16"
   }
 }

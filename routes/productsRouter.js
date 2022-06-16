@@ -1,16 +1,15 @@
 const express = require('express');
-const { newProduct  } = require('../controllers/productsController') 
+const { getProducts, getProduct } = require('../controllers/productsController') 
 const router = express.Router();
 
 
-router.get('/',(req,res)=>{
-   res.send(200, {products:[]}) 
+router.get('/', getProducts)
+
+router.get('/:productId',getProduct)
+
+router.post('/', (req, res)=>{
+    
 })
-
-router.get('/:productId'),(req,res)=>{
-    }
-
-router.post('/', newProduct)
 
 router.post('/:productId',(req,res)=>{
     

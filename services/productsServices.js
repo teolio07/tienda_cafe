@@ -1,14 +1,17 @@
 const productSchema = require('../models/productSchema') 
 
-function insertProduct (name, picture, price, category){
-        let product = new productSchema();
-        product.name = name
-        product.picture = picture
-        product.price = price
-        product.category = category
-        product.save();
-            
+class productsService{
+    async getProducts(){
+        const products = await productSchema.find() 
+        return products;
+    }
+    
+    async getProduct(productId){  
+        const products = await productSchema.findById(productId)
+        return products;
+    }
+}   
 
-}
 
-module.exports = {insertProduct}
+module.exports = productsService;
+
