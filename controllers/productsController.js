@@ -32,4 +32,22 @@ const getProduct= async(req,res)=>{
 }
 
 
-module.exports = {getProducts, getProduct}
+const saveProduct = async (req,res)=>{
+    try{
+        let name = req.body.name
+        let picture = req.body.picture
+        let price = req.body.price
+        let category = req.body.category
+        console.log(name)
+        const saveProducts = service.saveProducts(name, picture, price, category)
+        saveProducts.then((resolve)=>{
+            console.log(resolve)
+            res.json(resolve)
+        })
+    }
+    catch(error){
+        console.log(error)
+    }
+}
+
+module.exports = {getProducts, getProduct, saveProduct}

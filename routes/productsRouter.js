@@ -1,5 +1,5 @@
 const express = require('express');
-const { getProducts, getProduct } = require('../controllers/productsController') 
+const { getProducts, getProduct, saveProduct } = require('../controllers/productsController') 
 const router = express.Router();
 
 
@@ -7,13 +7,7 @@ router.get('/', getProducts)
 
 router.get('/:productId',getProduct)
 
-router.post('/', (req, res)=>{
-    
-})
-
-router.post('/:productId',(req,res)=>{
-    
-})
+router.post('/',saveProduct )
 
 router.put('/:productId',(req,res)=>{
     
