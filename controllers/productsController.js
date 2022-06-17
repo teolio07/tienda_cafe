@@ -50,4 +50,36 @@ const saveProduct = async (req,res)=>{
     }
 }
 
-module.exports = {getProducts, getProduct, saveProduct}
+const productDelete = async (req,res)=>{
+    try{
+        let productId = req.params.productId    
+        const productDelete = service.productDelete(productId);
+        productDelete.then((resolve)=>{ 
+            console.log(resolve);
+            res.json(resolve)
+        })
+    }
+    catch(error){
+        console.log(error)
+    }
+
+}
+
+const productUpdate= async (req,res)=>{
+    try{
+        let update = req.body;
+        let productId = req.params.productId
+        console.log(update)
+        const productUpdate = service.productUpdate(productId, update)
+        productUpdate.then((resolve)=>{
+            console.log(resolve)
+            res.json(resolve)
+        })
+    }
+    catch(error){
+        console.log(error)
+    }
+
+}
+
+module.exports = {getProducts, getProduct, saveProduct, productDelete, productUpdate}

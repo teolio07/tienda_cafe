@@ -7,8 +7,8 @@ class productsService{
     }
     
     async getProduct(productId){  
-        const products = await productSchema.findById(productId)
-        return products;
+        const getProduct = await productSchema.findById(productId)
+        return getProduct;
     }
     
     async saveProducts(name, picture, price, category){
@@ -20,8 +20,19 @@ class productsService{
         await saveProduct.save()
         return saveProduct;
     }
-}   
+    
+    async productDelete(productId){
+        const product = await productSchema.findByIdAndDelete(productId)       
+        return product;
+    }
+    
+    async productUpdate(productId, update){
+        const product = await productSchema.findByIdAndUpdate(productId, update)
+        return product
+    }
+    
 
+}   
 
 module.exports = productsService;
 
