@@ -1,0 +1,91 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family:"titulo";
+    
+    
+    
+}
+
+@font-face {
+    font-family:"titulo";
+    src:url("img/Coffee\ Latte.ttf")
+}
+section{
+    display: flex;
+    justify-content: center;
+    
+}
+img{
+    width: 550px;
+    height: 420px;
+}
+.registro_label{
+    font-size: 28px;
+    width: 180px;
+    position: relative;
+    top: -28px;
+    color: rgb(0, 0, 0);
+    background-color: rgb(0, 255, 106);
+    border: 2px solid black;
+    border-radius: 6%;
+
+}
+label{
+    font-size: 25px;
+    color: rgb(0, 0, 0);
+}
+ input{
+    margin-bottom: 10px;
+    height: 30px;
+    font-size: 25px;
+    
+    border:none;
+    border-bottom: 2px solid black;
+    background-color:transparent;
+    
+ }
+
+.form{
+    background-color: rgb(255, 235, 212);
+    margin-top: 50px;
+    margin-left: 50px;
+    display: flex;
+    width: 350px;
+    height: auto;
+    flex-direction: column;
+    padding: 15px;
+    border: 2px solid black;
+    border-radius: 4%;
+}
+.container_radio{
+    
+    display: flex;
+    justify-content: center;
+}
+.inicio{
+    margin-top: 15px;
+}
+.a{
+    margin-top: 7px;
+    margin-left: 40px;
+}
+.ab{
+    margin-top: 7px;
+    margin-left: 45px;
+}
+
+.registro{
+    margin-top: 10px;
+    margin-bottom: -5px;
+    height: 40px;
+    border: 2px solid ;
+    background-color: rgb(5, 255, 117);
+}
+.input:focus{
+    outline:none;
+   
+    color: rgb(0, 0, 0);
+    background: linear-gradient(to bottom,transparent, rgb(245, 210, 171));
+}

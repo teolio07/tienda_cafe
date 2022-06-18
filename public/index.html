@@ -2,9 +2,178 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title></title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="prueba.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/ae54f59bd6.js" crossorigin="anonymous"></script>
 </head>
-<body>
-    <h1>Pagina con express</h1> 
+<body onload="recargar()">
+    <div class="container-top" id="top"> 
+      <div class="inicio-top">
+        <h1> "EL CAFE DE LA ESQUINA" </h1>
+        <img src="img/cafre.svg" class="inicio-imagen"
+         alt="">
+
+      </div>
+        <svg class="wave-top" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+            <path fill="#1fb344" fill-opacity="1" d="M0,128L80,128C160,128,320,128,480,144C640,160,800,192,960,192C1120,192,1280,160,1360,144L1440,128L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z"></path>
+        </svg>  
+    </div>
+    <div class="container-bottom" id="bottom">
+        <svg class="wave-bottom" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+        <path fill="#292929" fill-opacity="1" d="M0,128L80,128C160,128,320,128,480,144C640,160,800,192,960,192C1120,192,1280,160,1360,144L1440,128L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"></path>
+        </svg>
+        <div class="inicio-bottom">
+          <h1> "DESDE 1972 LLEVANDO CAFE A LA BOCA DE TODOS" </h1>
+  
+        </div>
+                
+    </div>
+    <div class="menu">
+        <header class="header">
+            <div class="header-container"> 
+                
+                
+                <ul class="ul">
+                    <li class="ul-li fa-solid fa-mug-saucer"><a href="">INICIO</a></li>
+                    <li class="ul-li fa-solid fa-cheese"><a href="">PRODUCTOS</a></li>
+                    <li class="ul-li fa-solid fa-book-open"><a href="">HISTORIA</a></li>
+                    <li class="ul-li fas fa-solid fa-cart-shopping"><a href="">COMPRAS</a></li>
+                </ul>
+                <div class="container-logo"><img class="logo" src="img/taza (1).svg" alt=""></div>
+               
+            </div>
+            
+        </header>
+        <svg class="header-wave" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+            <path fill="#1fb344" fill-opacity="1" d="M0,128L80,128C160,128,320,128,480,144C640,160,800,192,960,192C1120,192,1280,160,1360,144L1440,128L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z"></path>
+        </svg>
+
+    </div>
+    
+    <section class="content">
+        <div class="container-title"><h2 class="title">"CAFE DE TRADICION"</h2></div>
+        <div class="container-info-uno" style="background-image:url('./img/vector-cafe.jpg') ;">
+            <div></div>
+            <img src="img/cafe2.jpg" alt="" class="img-info-uno">
+            <div></div>
+            
+
+        </div>
+        
+        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                
+                <div class="container-catalogo">
+                    <div class="caja uno"><img  class="producto" src="img/cafe.jpg" alt=""></div>
+                    <div class="caja dos"> <img  class="producto" src="img/cafe.jpg" alt=""></div>
+                    <div class="caja tres"> <img  class="producto" src="img/cafe.jpg" alt=""></div>
+                    <div class="caja cuatro"> <img  class="producto"src="img/cafe.jpg" alt=""></div>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <div class="container-catalogo">
+                    <div class="caja uno"><img  class="producto" src="img/cafe.jpg" alt=""></div>
+                    <div class="caja dos"> <img  class="producto" src="img/cafe.jpg" alt=""></div>
+                    <div class="caja tres"> <img  class="producto" src="img/cafe.jpg" alt=""></div>
+                    <div class="caja cuatro"> <img  class="producto"src="img/cafe.jpg" alt=""></div>
+                </div>
+
+              </div>
+              <div class="carousel-item">
+                <div class="container-catalogo">
+                    <div class="caja uno"><img  class="producto" src="img/cafe.jpg" alt=""></div>
+                    <div class="caja dos"> <img  class="producto" src="img/cafe.jpg" alt=""></div>
+                    <div class="caja tres"> <img  class="producto" src="img/cafe.jpg" alt=""></div>
+                    <div class="caja cuatro"> <img  class="producto"src="img/cafe.jpg" alt=""></div>
+                </div>
+
+              </div>
+            </div>
+            <button class="carousel-control-prev button" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon button" ></span>
+              <span class="visually-hidden button">Previous</span>
+            </button>
+            <button class="carousel-control-next button1" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+              <span class="carousel-control-next-icon button1" ></span>
+              
+            </button>
+          </div>
+          <div class="container-info-dos">
+            <h1 class="titulo-servicios">algunos de nuestros servicios</h1>
+            <div class="servicio-uno"><img class="img-servicio"src="img/desayuno.jpg" alt="">  
+              <h1 class="titulos">DESAYUNOS</h1>  
+
+            </div>
+            <div class="servicio-dos"><img class="img-servicio"src="img/Cafeina.jpeg" alt=""> 
+              <h1 class="titulos">CAFETERIA</h1>   
+
+            </div>
+            <div class="servicio-tres"> <img class="img-servicio"src="img/torta.jpg" alt=""> 
+              <h1 class="titulos">REPOSTERIA</h1>   
+
+            </div>
+
+            
+
+        </div>
+
+    </section>
+    <footer class="footer">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+            <path fill="#fff" fill-opacity="1" d="M0,128L80,128C160,128,320,128,480,144C640,160,800,192,960,192C1120,192,1280,160,1360,144L1440,128L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z"></path>
+          </svg>
+          <div class="container-footer">
+            <div>
+              <img class="img-footer" src="img/cafre.svg" alt="">
+            </div>
+            <div class="container-contacto">
+              <h1>CONTACTANOS</h1>
+              <a class="a" href="">SOBRE NOSOTROS</a>
+              <a class="a" href="">NUESTRA HISTORIA</a>
+            </div>
+            <div class="container-contacto">
+              <h1>TE OFRECEMOS</h1>
+              <a class="a" href="">PRODUCTOS</a>
+              <a class="a" href="">SERVICIOS</a>
+              
+
+            </div>
+            <div class="container-redes">
+              <h1>SIGUENOS</h1>
+              <div class="container-logos">
+                <a class="a facebook" href=""><img class="img-redes" src="img/facebook.png" alt=""></a>
+                <a class="a instagram" href=""><img class="img-redes" src="img/instagram.png" alt=""></a>
+                <a class="a youtube" href=""><img class="img-redes" src="img/youtube.png" alt=""></a>
+
+              </div>
+
+            </div>
+          </div>
+        
+    </footer>
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    <script >
+      function recargar(){
+            window.scrollTo(0,0)
+
+      }
+
+      function desplazar(){
+          
+          document.getElementById("top").style.transform="translate(0,-600px)"
+          document.getElementById("bottom").style.transform="translate(0,2000px)"
+          }
+          setTimeout(desplazar,3000)
+      
+  
+  
+  </script>
 </body>
 </html>

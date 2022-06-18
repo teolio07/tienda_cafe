@@ -2,36 +2,64 @@ const productSchema = require('../models/productSchema')
 
 class productsService{
     async getProducts(){
-        const products = await productSchema.find() 
-        return products;
+        try{ 
+            const products = await productSchema.find() 
+            return products;
+        }
+        catch(error){ 
+            return ('products not found')
+        }
+
     }
     
-    async getProduct(productId){  
-        const getProduct = await productSchema.findById(productId)
-        return getProduct;
-    }
-    
+    async getProduct(productId){    
+        try{ 
+            const getProduct = await productSchema.findById(productId)        
+            return getProduct
+        }
+        catch(error){  
+            return ('product not found')
+        }
+    } 
+
     async saveProducts(name, picture, price, category){
-        const saveProduct = new productSchema()
-        saveProduct.name = name
-        saveProduct.picture = picture
-        saveProduct.price = price
-        saveProduct.category = category
-        await saveProduct.save()
-        return saveProduct;
+        try{    
+            const saveProduct = new productSchema()
+            saveProduct.name = name
+            saveProduct.picture = picture
+            saveProduct.price = price
+            saveProduct.category = category
+            await saveProduct.save()
+            return saveProduct;   
+        } 
+        catch(error){
+            return ('error saving product')
+        }
+        
     }
     
     async productDelete(productId){
-        const product = await productSchema.findByIdAndDelete(productId)       
-        return product;
+        try{
+            const product = await productSchema.findByIdAndDelete(productId)       
+            return product;            
+        }
+        catch(error){
+            return ('error removing product')
+        }
+
     }
     
     async productUpdate(productId, update){
-        const product = await productSchema.findByIdAndUpdate(productId, update)
-        return product
+        try{
+            const product = await productSchema.findByIdAndUpdate(productId, update)
+            return product
+        }
+        catch(error){
+            return ('error update product')
+        }
+
     }
     
-
 }   
 
 module.exports = productsService;

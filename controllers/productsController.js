@@ -1,13 +1,14 @@
 const productsService = require('./../services/productsServices') 
 const service = new productsService
 
-const getProducts = async (req,res)=>{
+const getProducts = (req,res)=>{
     try{  
         const getProducts = service.getProducts() 
-        getProducts.then((res)=>{ 
-            console.log(res)
-        })
-        res.json(getProducts)
+        getProducts.then((resolve)=> {
+            console.log(resolve)
+            res.send(resolve)   
+        } )
+         
     }
     catch(error){
         console.log(error)
@@ -16,23 +17,24 @@ const getProducts = async (req,res)=>{
 }
 
 
-const getProduct= async(req,res)=>{ 
+const getProduct= (req,res)=>{ 
     try{ 
         const { productId  } = req.params
         const getProduct = service.getProduct(productId)            
-        getProduct.then((result)=>{ 
-            console.log(result)
-        })
-        res.json(getProduct)
+        getProduct.then((resolve)=>{ 
+            console.log(resolve)
+            res.send(resolve)
+        }) 
+        
     } 
     catch(error){ 
-        console.log('error get product by id')
+        console.log(error)
         res.send('error get product by id')
     }
 }
 
 
-const saveProduct = async (req,res)=>{
+const saveProduct = (req,res)=>{
     try{
         let name = req.body.name
         let picture = req.body.picture
@@ -42,7 +44,7 @@ const saveProduct = async (req,res)=>{
         const saveProducts = service.saveProducts(name, picture, price, category)
         saveProducts.then((resolve)=>{
             console.log(resolve)
-            res.json(resolve)
+            res.send(resolve)
         })
     }
     catch(error){
@@ -50,13 +52,13 @@ const saveProduct = async (req,res)=>{
     }
 }
 
-const productDelete = async (req,res)=>{
+const productDelete = (req,res)=>{
     try{
         let productId = req.params.productId    
         const productDelete = service.productDelete(productId);
         productDelete.then((resolve)=>{ 
             console.log(resolve);
-            res.json(resolve)
+            res.send(resolve)
         })
     }
     catch(error){
@@ -65,7 +67,7 @@ const productDelete = async (req,res)=>{
 
 }
 
-const productUpdate= async (req,res)=>{
+const productUpdate= (req,res)=>{
     try{
         let update = req.body;
         let productId = req.params.productId
@@ -73,7 +75,7 @@ const productUpdate= async (req,res)=>{
         const productUpdate = service.productUpdate(productId, update)
         productUpdate.then((resolve)=>{
             console.log(resolve)
-            res.json(resolve)
+            res.send(resolve)
         })
     }
     catch(error){
