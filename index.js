@@ -7,8 +7,10 @@ require('dotenv').config()
 //Environment variables
 const port = process.env.PORT || 3001
 
-//modules
+//database
 require('./database/db')
+
+//modules
 const routerApi = require('./routes')
 
 //settings
@@ -19,4 +21,6 @@ app.use(express.json())
 //routes
 routerApi(app);
 
+
+//run server
 app.listen(port,()=> {console.log(`Running API port ${port}`)})
