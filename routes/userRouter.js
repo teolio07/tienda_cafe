@@ -1,6 +1,7 @@
 const express = require('express');
 const {userRegister, userLogin } = require('../controllers/userController') 
-const Token = require('../middlewares/validateToken')
+const {verifyToken} = require('../middlewares/validateToken')
+
 const userRouter = express.Router();
 
 
@@ -8,7 +9,9 @@ userRouter.post('/register', userRegister)
 
 userRouter.post('/login', userLogin )
 
-userRouter.get('/admin', Token , (req, res) => {
+userRouter.get('/admin', verifyToken, (req, res) => {
+    usuario = req.user
+    console.log(usuario)
     res.json({
         error: null,
         data: {

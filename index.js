@@ -12,14 +12,18 @@ require('./database/db')
 
 //modules
 const routerApi = require('./routes')
+const { boomErrorHandler } = require('./middlewares/errorHandler')
 
 //settings
 app.use(express.static("public"))
 app.use(express.json())
 
 
-//routes
+//routing
 routerApi(app);
+
+//middlewares
+//app.use(boomErrorHandler)
 
 
 //run server

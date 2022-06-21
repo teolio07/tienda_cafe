@@ -24,7 +24,7 @@ const schemaLogin = Joi.object({
 
 const userRegister =async (req,res)=>{
     
-    //validate user
+    //validate data user
     const { error  } = schemaRegister.validate(req.body)
      
     if(error) {
@@ -40,14 +40,14 @@ const userRegister =async (req,res)=>{
         let email = req.body.email
         let password = req.body.password
         const register = service.usersRegister(name,email,password)
-        register.then((resolve)=>{ 
-            console.log(resolve)
-            res.send(resolve)
+        register.then((response)=>{ 
+            console.log(response)
+            res.json(response)
         })
         
     }
     catch(error){
-        return ('error al registrar usuario desde user controller')
+        return res.send('Server error')
     }
 }
 
@@ -65,18 +65,23 @@ const userLogin = async (req,res)=>{
         let email = req.body.email
         let password = req.body.password
         const login = service.usersLogin(email,password)
-        login.then((resolve)=>{ 
+        login.then((resolve)=>{  
+                const state = resolve.state 
                 const token = resolve.token 
+                if(token == null){ 
+                   return res.status(resolve.output.statusCode).json(resolve.output.payload)
+                }
                 res.header('auth-token', token).json({
                     error: null,
-                    data: {token}
+                    state: state, 
+                    token
                 })
 
             }
         )
     }
     catch(error){ 
-        return ('error al loguerse desde user controller')
+        return ('Server error')
     }
     
     

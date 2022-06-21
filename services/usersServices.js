@@ -2,6 +2,7 @@ const userSchema = require('../models/userSchema');
 const jwt = require('jsonwebtoken')
 
 const bcrypt = require('bcrypt')
+const boom = require('@hapi/boom')
 
 
 class usersService{
@@ -10,9 +11,7 @@ class usersService{
         //validate email
         const isEmailExist = await userSchema.findOne({ email });
         if (isEmailExist) {
-            return (
-                {error: 'Email ya registrado'}
-            )
+            return (boom.badImplementation('User already registered'))
         }
 
         //hash password
@@ -32,7 +31,7 @@ class usersService{
             return userRegister
         }
         catch(error){ 
-            return ('error al registrar el usuario desde  el servicio de usuario') 
+            return (boom.badImplementation('Error registering user ')) 
         }
     }
 
@@ -41,25 +40,23 @@ class usersService{
    
         
         try{
-            const validateEmail = await userSchema.findOne({email})       
-            if(!validateEmail) return ({ 
-                error: "Usuario  no encontrado"
-            })
+            const validateEmail = await userSchema.findOne({email});       
+            if(!validateEmail) return (boom.badData('Email and password are not valid '))
 
             const validatePassword = await bcrypt.compare(password, validateEmail.password);
-            if (!validatePassword) return ({ error: 'contraseña no válida' })
+            if (!validatePassword) return (boom.badData('Email and password are not valid '))
 
             const token = jwt.sign({
                 name: validateEmail.name,
                 id: validateEmail._id
             }, process.env.TOKEN_SECRET)
         
-            return ({data: "registrado", 
+            return ({message: "Session started", 
                     token
             })
         }
         catch(error){ 
-            console.log('error al loguearse desde user service')
+            return (boom.badImplementation('Error login user')) 
         }
         
     }
