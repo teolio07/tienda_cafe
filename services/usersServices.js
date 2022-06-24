@@ -11,7 +11,7 @@ class usersService{
         //validate email
         const isEmailExist = await userSchema.findOne({ email });
         if (isEmailExist) {
-            return (boom.badImplementation('User already registered'))
+            return (boom.badRequest('User already registered'))
         }
 
         //hash password
