@@ -7,7 +7,7 @@ const boom = require('@hapi/boom')
 
 class usersService{
 
-    async usersRegister(name,email,password){ 
+    async usersRegister(name,email,phone,password){ 
         //validate email
         const isEmailExist = await userSchema.findOne({ email });
         if (isEmailExist) {
@@ -26,6 +26,7 @@ class usersService{
             const userRegister = new userSchema() 
             userRegister.name = name 
             userRegister.email = email
+            userRegister.phone = phone
             userRegister.password = password
             await userRegister.save()
             return userRegister

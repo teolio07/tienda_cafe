@@ -1,13 +1,13 @@
 const usersService = require('./../services/usersServices')
 const service = new usersService
 const Joi = require('@hapi/joi');
-const jwt = require('jsonwebtoken')
 
 //validate data register
 const schemaRegister = Joi.object({
     name: Joi.string().min(3).max(255).required(),
     email: Joi.string().min(6).max(255).required().email() ,
     password: Joi.string().min(6).max(255).required(),
+    phone: Joi.string().min(6).max(255).required(),
    
 })
 
@@ -36,10 +36,12 @@ const userRegister =async (req,res)=>{
 
 
     try{
-        const name = req.body.name
-        const email = req.body.email
-        const password = req.body.password
-        const register = service.usersRegister(name,email,password)
+        let name = req.body.name
+        let email = req.body.email
+        let password = req.body.password
+        let phone = req.body.phone
+        console.log(phone)
+        const register = service.usersRegister(name,email,phone,password)
         register.then((response)=>{ 
             const data = response.data;
             if(data == null){
