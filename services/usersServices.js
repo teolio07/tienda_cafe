@@ -46,14 +46,16 @@ class usersService{
 
             const validatePassword = await bcrypt.compare(password, validateEmail.password);
             if (!validatePassword) return (boom.badData('Email and password are not valid '))
-
+            let nameUser= validateEmail.name
             const token = jwt.sign({
                 name: validateEmail.name,
                 id: validateEmail._id
             }, process.env.TOKEN_SECRET)
         
             return ({message: "Session started", 
-                    token
+                    token,
+                    name: nameUser
+
             })
         }
         catch(error){ 

@@ -40,12 +40,11 @@ const userRegister =async (req,res)=>{
         let email = req.body.email
         let password = req.body.password
         let phone = req.body.phone
-        console.log(phone)
         const register = service.usersRegister(name,email,phone,password)
         register.then((response)=>{ 
             const data = response.data;
             if(data == null){
-                return res.status(response.output.statusCode).json(response.output.payload);      
+                return res.status(response.output.payload.statusCode).json(response.output.payload);      
             }
             res.json(response);
         })
@@ -71,16 +70,16 @@ const userLogin = async (req,res)=>{
         let password = req.body.password
         const login = service.usersLogin(email,password)
         login.then((resolve)=>{  
-                const state = resolve.state 
-                const token = resolve.token 
+                let name = resolve.name
+                let token = resolve.token 
                 if(token == null){ 
                    return res.status(resolve.output.statusCode).json(resolve.output.payload)
                 }
                 res.header('auth-token', token).json({
-                    information:'logueado',
+                    information:'Logged in',
                     error: null,
-                    state: state, 
-                    token
+                    token,
+                    name
                 })
 
             }

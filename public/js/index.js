@@ -1,5 +1,6 @@
 const btnLogin = document.getElementById('btnLogin') 
 const btnRegister = document.getElementById('btnRegister')
+            
 
 //**********************Register
 btnRegister.addEventListener('click',(event)=>{
@@ -54,14 +55,25 @@ btnLogin.addEventListener('click',(event)=>{
         })
         .then(res => res.json())
         .then(res=> {
+            if(res.error) return (                
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'error',
+                    title: 'Something went wrong ',
+                    text: res.message || res.error ,
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+            ) 
+            console.log(res)
             Swal.fire({
                 position: 'top-end',
                 icon: 'success',
-                title: 'Your work has been saved',
+                title: `Welcome ${res.name}`,
+                text: res.information ,
                 showConfirmButton: false,
                 timer: 1500
             })
-            console.log(res)
             token = res.token
             localStorage.setItem("token", token)
             if(token) window.location.reload();
