@@ -3,6 +3,7 @@ const jwt = require('jsonwebtoken')
 
 const bcrypt = require('bcrypt')
 const boom = require('@hapi/boom')
+const moment = require('moment')
 
 
 class usersService{
@@ -47,9 +48,12 @@ class usersService{
             const validatePassword = await bcrypt.compare(password, validateEmail.password);
             if (!validatePassword) return (boom.badData('Email and password are not valid '))
             let nameUser= validateEmail.name
+            let idUser = validateEmail._id
             const token = jwt.sign({
-                name: validateEmail.name,
-                id: validateEmail._id
+                sub: nameUser, idUser,  
+                iat: moment().unix() ,
+                exp:moment().add(1, 'm').unix(),
+                
             }, process.env.TOKEN_SECRET)
         
             return ({message: "Session started", 

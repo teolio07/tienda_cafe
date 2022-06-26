@@ -95,7 +95,7 @@ btnLogin.addEventListener('click',(event)=>{
             })
             token = res.token
             localStorage.setItem("token", token)
-            if(token) window.location.reload();
+//            if(token) window.location.reload();
             }
         );
     }catch(error){console.log(error)} 

@@ -11,7 +11,6 @@ userRouter.post('/login', userLogin )
 
 userRouter.get('/admin', verifyToken, (req, res) => {
     usuario = req.user
-    console.log(usuario)
     res.json({
         error: null,
         data: {
