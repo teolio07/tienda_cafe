@@ -42,11 +42,12 @@ const userRegister =async (req,res)=>{
         let phone = req.body.phone
         const register = service.usersRegister(name,email,phone,password)
         register.then((response)=>{ 
-            const data = response.data;
-            if(data == null){
+            if(response.isBoom == true){
                 return res.status(response.output.payload.statusCode).json(response.output.payload);      
+            }else{ 
+                 
+                res.json(response);
             }
-            res.json(response);
         })
         
     }

@@ -23,7 +23,26 @@ btnRegister.addEventListener('click',(event)=>{
         })
         .then(res => res.json())
         .then(res=> {
-                return console.log(res)
+            console.log(res)
+            if(res.error) return (                
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'error',
+                    title: 'Something went wrong ',
+                    text: res.message || res.error ,
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+            ) 
+            console.log(res)
+            Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: `welcome ${res.name}`,
+                text: 'El registro fue un exito',
+                showConfirmButton: false,
+                timer: 1500
+            })
             }
         );
        

@@ -29,10 +29,11 @@ const usersSchema = mongoose.Schema({
         max:255
 
     },
-    date:{ 
+    signUpDate:{ 
         type: Date,
         default: Date.now
-    }
+    },
+    lastLogin: Date
 })
 
 const userSchema = mongoose.model('users', usersSchema)
