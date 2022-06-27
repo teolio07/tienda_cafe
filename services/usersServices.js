@@ -1,9 +1,10 @@
 const userSchema = require('../models/userSchema');
-const jwt = require('jsonwebtoken')
+
+const createTokens = require('./createToken')
+const tokens = new createTokens;
 
 const bcrypt = require('bcrypt')
 const boom = require('@hapi/boom')
-const moment = require('moment')
 
 
 class usersService{
@@ -16,7 +17,7 @@ class usersService{
         }
 
         //hash password
-        const salt = await bcrypt.genSalt(10);
+        let salt = await bcrypt.genSalt(10);
         password = await bcrypt.hash(password, salt);        
 
 
@@ -49,12 +50,7 @@ class usersService{
             if (!validatePassword) return (boom.badData('Email and password are not valid '))
             let nameUser= validateEmail.name
             let idUser = validateEmail._id
-            const token = jwt.sign({
-                sub: nameUser, idUser,  
-                iat: moment().unix() ,
-                exp:moment().add(1, 'm').unix(),
-                
-            }, process.env.TOKEN_SECRET)
+            let token = tokens.createToken(nameUser,idUser) 
         
             return ({message: "Session started", 
                     token,

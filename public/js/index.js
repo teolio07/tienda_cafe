@@ -23,7 +23,6 @@ btnRegister.addEventListener('click',(event)=>{
         })
         .then(res => res.json())
         .then(res=> {
-            console.log(res)
             if(res.error) return (                
                 Swal.fire({
                     position: 'top-end',
@@ -43,8 +42,12 @@ btnRegister.addEventListener('click',(event)=>{
                 showConfirmButton: false,
                 timer: 1500
             })
-            }
-        );
+            if(res.name){ 
+                setTimeout(()=>{ 
+                    window.location.reload() 
+                },1000)
+            }           
+        });
        
     }
     catch(error){console.log(error)}
@@ -95,9 +98,13 @@ btnLogin.addEventListener('click',(event)=>{
             })
             token = res.token
             localStorage.setItem("token", token)
-//            if(token) window.location.reload();
-            }
-        );
+            if(token){ 
+                setTimeout(()=>{ 
+                    window.location.reload() 
+                },1000)
+            } 
+
+        });
     }catch(error){console.log(error)} 
 
 }) 
