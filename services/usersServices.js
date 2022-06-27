@@ -10,7 +10,7 @@ const boom = require('@hapi/boom')
 class usersService{
 
     async usersRegister(name,email,phone,password){ 
-        //validate email
+        //validate if the email exists
         const isEmailExist = await userSchema.findOne({ email });
         if (isEmailExist) {
             return (boom.badRequest('User already registered'))
@@ -23,7 +23,7 @@ class usersService{
 
 
 
-        //create user
+        //data for create the user
         try{
             const userRegister = new userSchema() 
             userRegister.name = name 
@@ -43,11 +43,15 @@ class usersService{
    
         
         try{
-            const validateEmail = await userSchema.findOne({email});       
+            //validate if the email exists
+            let validateEmail = await userSchema.findOne({email});       
             if(!validateEmail) return (boom.badData('Email and password are not valid '))
-
-            const validatePassword = await bcrypt.compare(password, validateEmail.password);
+            
+            //validate if the password belong to the user 
+            let validatePassword = await bcrypt.compare(password, validateEmail.password);
             if (!validatePassword) return (boom.badData('Email and password are not valid '))
+
+            //data for login
             let nameUser= validateEmail.name
             let idUser = validateEmail._id
             let token = tokens.createToken(nameUser,idUser) 
