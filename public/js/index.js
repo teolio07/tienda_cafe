@@ -66,6 +66,7 @@ btnLogin.addEventListener('click',(event)=>{
     const dataLogin = {email: email.value,
             password: password.value 
             }
+    console.log(dataLogin)
     try{
         event.preventDefault();
         fetch('https://tiendacafe.herokuapp.com/api/v1/user/login', {
