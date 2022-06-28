@@ -2,6 +2,7 @@
 const express = require('express');
 const app = express();
 require('dotenv').config()
+const cors = require('cors')
 
 
 //Environment variables
@@ -17,6 +18,7 @@ const { boomErrorHandler } = require('./middlewares/errorHandler')
 //settings
 app.use(express.static("public"))
 app.use(express.json())
+app.use(cors())
 
 
 //routing
