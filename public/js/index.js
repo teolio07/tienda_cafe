@@ -14,7 +14,7 @@ btnRegister.addEventListener('click',(event)=>{
 
     try{
         event.preventDefault();
-        fetch('https://tiendacafe.herokuapp.com/api/v1/user/register', {
+        fetch('http://localhost:3001/api/v1/user/register', {
             method: 'POST',
             headers: {
             "Content-Type": "application/json",
@@ -68,7 +68,7 @@ btnLogin.addEventListener('click',(event)=>{
             }
     try{
         event.preventDefault();
-        fetch('https://tiendacafe.herokuapp.com/api/v1/user/login', {
+        fetch('http://localhost:3001/api/v1/user/login', {
             method: 'POST',
             headers: {
             "Content-Type": "application/json",
