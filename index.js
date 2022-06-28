@@ -18,6 +18,18 @@ const { boomErrorHandler } = require('./middlewares/errorHandler')
 //settings
 app.use(express.static("public"))
 app.use(express.json())
+
+//cors
+const whitelist = ['http://localhost:3001']
+const options = {
+    origin: (origin, callback)=>{
+        if(whitelist.includes(origin) ||!origin){ 
+            callback(null, true); 
+        }else{ 
+            callback(new Error('no permitido'))
+        }
+    }
+}
 app.use(cors())
 
 
