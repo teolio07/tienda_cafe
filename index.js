@@ -30,7 +30,7 @@ const options = {
         }
     }
 }
-app.use(cors())
+app.use(cors(options))
 
 
 //routing
