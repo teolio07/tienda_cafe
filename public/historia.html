@@ -7,10 +7,82 @@
     <title>Document</title>
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="historia.css">
+    <link rel="stylesheet" href="registro.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/ae54f59bd6.js" crossorigin="anonymous"></script>
 </head>
 <body onload="recargar()" id="body">
+ <!--  modal de inicio de sesion -->
+  <div class="modal fade" id="inicio" tabindex="-1" aria-labelledby="exampleModal" aria-hidden="true">
+    <div class="modal-dialog modal-content">
+      <div class="content-modal">
+        <div class="header-modal">
+          <h5 class="titulo-modal" id="exampleModal">Iniciar sesion</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id=""></button>
+        </div>
+        <div class="body-modal">
+            <form action="" class="form">
+                <label class="tituloss">Email   
+                </label>
+                    <input type="text" class="text">
+                <label class="tituloss">Password
+                </label>
+                    <input type="password" class="text">
+                    
+                
+                
+
+        
+        </div>
+        <div class="footer-modal">
+          <a class="link-registro"data-bs-dismiss="modal" >-cerrar-</a>
+          <a class="link-registro"  id="btnLogin">-iniciar sesion-</a>
+        </div>
+      </div>
+    </div>
+  </div>
+<!--   modal de registro de usuario -->
+  <div class="modal fade" id="registro" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-content">
+      <div class="content-modal ">
+        <div class="header-modal">
+          <h5 class="titulo-modal" id="exampleModalLabel">Registro Usuario</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="body-modal">
+            <form action="" class="form">
+                <label class="tituloss">Nombre
+                </label>
+                    <input type="text" class="input"> 
+                <label class="tituloss"> Apellidos
+                </label>
+                    <input type="text" class="input">
+                <label class="tituloss">Email   
+                </label>
+                <input type="text" class="input">
+                
+                <label class="tituloss">Telefono
+                </label>
+                    <input type="text" class="input">
+                <label class="tituloss">Password
+                </label>
+                    <input type="password" class="input">
+                <label class="tituloss">Confirmar Password
+                </label>
+                    <input type="password" class="input">
+                
+
+        
+        </div>
+        <div class="footer-modal">
+          <a class="link-registro"data-bs-dismiss="modal" >-cerrar-</a>
+          <a class="link-registro" id="btnRegister">-iniciar sesion-</a>
+
+        </div>
+      </div>
+    </div>
+  </div>
+<!--   parte superior de la animacion -->
     <div class="container-top" id="top"> 
       <div class="inicio-top">
         <h1> "EL CAFE DE LA ESQUINA" </h1>
@@ -22,6 +94,7 @@
             <path fill="#1fb344" fill-opacity="1" d="M0,128L80,128C160,128,320,128,480,144C640,160,800,192,960,192C1120,192,1280,160,1360,144L1440,128L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z"></path>
         </svg>  
     </div>
+  <!--   parte inferior de la animacion -->
     <div class="container-bottom" id="bottom">
         <svg class="wave-bottom" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
         <path fill="#292929" fill-opacity="1" d="M0,128L80,128C160,128,320,128,480,144C640,160,800,192,960,192C1120,192,1280,160,1360,144L1440,128L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"></path>
@@ -32,53 +105,78 @@
         </div>
                 
     </div>
+    <!-- inicio del header -->
     <div class="menu">
         <header class="header">
             <div class="header-container"> 
                 
-                
+                <!-- lista items menu -->
                 <ul class="ul">
                     <li class="ul-li fa-solid fa-mug-saucer"><a href="index.html">INICIO</a></li>
                     <li class="ul-li fa-solid fa-cheese"><a href="">PRODUCTOS</a></li>
-                    <li class="ul-li fa-solid fa-book-open"><a href="">HISTORIA</a></li>
+                    <li class="ul-li fa-solid fa-book-open"><a href="historia.html">HISTORIA</a></li>
                     <li class="ul-li fas fa-solid fa-cart-shopping"><a href="">COMPRAS</a></li>
                 </ul>
+                <!-- logo header -->
                 <div class="container-logo"><img class="logo" src="img/cafre.svg" alt=""></div>
+               <!-- boton para iniciar sesion o registrarse -->
+                <div class="sesion"  >
+                  <div class="dropstart">
+                    <i class="icono-sesion fa-solid fa-circle-user"data-bs-toggle="dropdown" aria-expanded="false">
+                    </i>
+                    <ul class="dropdown-menu " >
+                        <li class="login-li"  data-bs-toggle="modal" data-bs-target="#inicio">iniciar sesion</li>
+                        <li class="login-li"data-bs-toggle="modal" data-bs-target="#registro" >registrarse</li>
 
-                <div class="sesion"  ><i  data-bs-toggle="modal" data-bs-target="#exampleModal" class="icono-sesion fa-solid fa-circle-user"></i>
-                <h3 >LOGIN</h3></div>
+                    </ul>
+                  </div>
+                  <h3>login</h3>
+               </div>            
+                
+
+
                
             </div>
             
         </header>
+        <!-- wave que da el efecto de ola en el header -->
         <svg class="header-wave" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
             <path fill="#1fb344" fill-opacity="1" d="M0,128L80,128C160,128,320,128,480,144C640,160,800,192,960,192C1120,192,1280,160,1360,144L1440,128L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z"></path>
         </svg>
 
     </div>
-    
+    <!-- section contenedor de lo que se va a presentar -->
     <section class="content content-historia">
+      <!-- titulo de los articulos -->
         <div class="container-title titulo"><h2 class="title">"NUESTRA HISTORIA"</h2></div>
+        <!-- contenedor informacion uno -->
         <div class="container-uno"><img class="img" src="img/cafe2.jpg" alt=""><p>El balcón de los Recuerdos queda en toda la esquina de la Calle Real, en una casa típica de arquitectura colonial. La mayoría de las construcciones son en bahareque, color blanco y marcos coloridos.
             
 
             En este café también confluyen nacionales, extranjeros y los mismos lugareños que reconocen a la familia Araque, los propietarios, como sus vecinos de toda la vida.
             Son diez hermanos, una de ellas está en Estados Unidos, un hermano en Cali y el resto viven en Salento y administran el negocio. Un sobrino hace las tortas de chocolate, otro es el mesero, una hermana prepara los desayunos, el otro maneja la greca, el hermano mayor arma los perros calientes y la mamá, a sus 80 años, prepara los buñuelos más famosos de Salento. La familia pasó a la historia por su legendaria greca de la Victoria Arduino de Torino, Italia que data de
              1905, tiene 115 años y hace 60 que está en manos de la familia. Aún funciona. </p></div>
+
+             <!-- contenedor informacion dos -->
              <div class="container-dos" ><img  class="img-dos" src="img/WhatsApp Image 2022-06-20 at 9.51.59 PM.jpeg" alt=""><p>La poderosa máquina que tiene un águila de bronce en la punta y solo puede ser manipulada por los miembros de la familia.Poco a poco los Araque se han convertido en coleccionistas de grecas, y en total tienen cuatro de estas reliquias: la primera de 1910; la segunda, de 1933; y la tercera, de 1905. Esta última es la gemela de la afamada greca antes mencionada que sería la cuarta y la única al servicio, pues el resto se mantienen en exhibición.
                  <br> <a href="">https://revistadiners.com.co/viajes/74655_el-balcon-de-los-recuerdos-el-cafe-de-salento-que-conserva-una-greca-de-115-anos/</a></p></div>
+          <!-- contenedor informacion tres -->
         <div class="container-tres">
-            <div class="item m-uno"><img class="img-items" src="img/WhatsApp Image 2022-06-20 at 8.43.50 PM.jpeg" alt=""><p><b>este es un dibujo de nuestro establecimiento</b></p></div>
-            <div class="item m-dos"><img class="img-items"  src="img/WhatsApp Image 2022-06-20 at 8.43.48 PM (1).jpeg" alt=""><p><b> esta maquina fue dibujada por un extranjero que nos visito en el 2019</b></p></div>
-            <div class="item m-tres"><img class="img-items"  src="img/WhatsApp Image 2022-06-21 at 7.13.26 PM.jpeg" alt=""><p><b>este es un dibujo de nuestro establecimiento</b></p></div>
+          <!-- aca estan contenidos los divs con las caricaturas -->
+            <div class="item m-uno"><img class="img-items" src="img/WhatsApp Image 2022-06-20 at 8.43.50 PM.jpeg" alt=""><p>este es un dibujo de nuestro establecimiento creado por un extranjero</p></div>
+            <div class="item m-dos"><img class="img-items"  src="img/WhatsApp Image 2022-06-20 at 8.43.48 PM (1).jpeg" alt=""><p> esta maquina fue dibujada por un extranjero que nos visito en el 2019</p></div>
+            <div class="item m-tres"><img class="img-items"  src="img/WhatsApp Image 2022-06-21 at 7.13.26 PM.jpeg" alt=""><p>este dibujo lo hizo una caricaturista de cartoon network</p></div>
 
 
         </div>
+        <!-- aca esta el contenedor de la informacion del dueño -->
         <div class="container-cuatro">
           <img class="img-owner" src="img/WhatsApp Image 2022-06-21 at 6.26.00 PM.jpeg" alt=""><div class="info-owner"><h1 class="h-info">Orlando Araque Arias</h1><p class="p-info">“Era un gran hombre, muy trabajador, entregado a su familia y un ser muy optimista, ‘Si hoy no se vendió un café, bueno, será mañana’, decía”.</p></div>
 
         </div>
+        <!-- este contenedor va a tener alugunos de los vinculos de articulos sobre la tienda -->
         <div class="container-cinco">
+
             <iframe class="iframe-youtube" width="460" height="245" class="iframe" src="https://www.youtube.com/embed/2k3kQpiJQ_g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             <div>
               <h1>Mas sobre nosotros</h1>
@@ -90,19 +188,26 @@
        
 
     </section>
+
+    <!-- aca empieza el footer -->
     <footer class="footer footer-historia">
+      <!-- tenemos el wave que da el efecto de ola para el footer -->
       <svg class="wave-historia" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
         <path fill="#292929" fill-opacity="1" d="M0,128L80,128C160,128,320,128,480,144C640,160,800,192,960,192C1120,192,1280,160,1360,144L1440,128L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"></path>
         </svg>
+       <!--  contenedor de la informacion del footer -->
           <div class="container-footer">
+            <!-- logo footer -->
             <div>
               <img class="img-footer" src="img/cafre.svg" alt="">
             </div>
+            <!-- contactos de la tienda -->
             <div class="container-contacto">
               <h1>CONTACTANOS</h1>
               <a class="a" href="">SOBRE NOSOTROS</a>
               <a class="a" href="">NUESTRA HISTORIA</a>
             </div>
+            <!-- servicios -->
             <div class="container-contacto">
               <h1>TE OFRECEMOS</h1>
               <a class="a" href="">PRODUCTOS</a>
@@ -110,6 +215,7 @@
               
 
             </div>
+            <!-- hipervinculos de las redes sociales -->
             <div class="container-redes">
               <h1>SIGUENOS</h1>
               <div class="container-logos">
@@ -125,18 +231,21 @@
     </footer>
     
     
-    
+    <!-- script de boostrap para que funcionen los objetos utilizados -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
     <script >
+      /* funcion para cuando se recargue el scroll se ponga en el inicio */
       function recargar(){
             window.scrollTo(0,0)
+            document.getElementById("body").style.overflowY="hidden"
 
       }
 
+     /*  funcion para desplazar los div de la animacion del inicio */
       function desplazar(){
           
           document.getElementById("top").style.transform="translate(0,-600px)"
-          document.getElementById("bottom").style.transform="translate(0,250vh)"
+          document.getElementById("bottom").style.transform="translate(0,350vh)"
           document.getElementById("body").style.overflowY="visible"
           }
           setTimeout(desplazar,3000)

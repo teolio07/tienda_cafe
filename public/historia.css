@@ -45,10 +45,10 @@ p{
 .container-tres{
     
     background-color:rgb(26, 158, 30);
-    width: 80%;
+    width: 95%;
     margin: auto;
     height: 480px;
-    padding:40px;
+    padding-top:30px;
     display: flex;
     justify-content: space-around;
     margin-bottom: 80px;
@@ -70,10 +70,12 @@ p{
 p{
     margin-top:-4px;
    
+   
 }
-b{
-    color:rgb(255, 255, 255)
+.container-tres div p{
+    color: white;
 }
+
 .m-uno{
     margin-top: -8vh;
     margin-left: -13vw;

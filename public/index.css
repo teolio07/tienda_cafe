@@ -2,12 +2,15 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family:"titulo";
+    font-family: "dos";
+
     
 }
+
 body{
    
    overflow-x: hidden;
+
    
    
    
@@ -110,28 +113,27 @@ body{
     
 
 .container-logo{
-    margin-top: 50px;
-    margin-right: 180px;
+    margin-left: 40px;
+    margin-top: -1vh;;
     position: relative;
     z-index: 1;
-    
-   
-    width:250px;
-    height: 200px;
-    border:  2px solid #00000000;
+    width:15%;
+    height: 40vh;
+    border: 2px solid #00000000;
     
     
     
 
 }
 .logo{ 
-    width:300px;
-    height:200px
+    width:100%;
+    height:100%;
+
    
     
 }
 .ul{
-    margin-top: 100px;
+    margin-top: 10vh;
     z-index: 5;
     width: 40%;
     display: flex;
@@ -154,18 +156,22 @@ body{
 }
 .ul-li a:hover{
     color: #292929;
+    padding: 5px;
+    border-bottom: solid;
 
     
     
 }
 
+
 .sesion{
-    width: 120px;
-    font-size: 60px;
-    height: 120px;
+    width: 10vw;
+    font-size: 8vh;
+    height: 20vh;
     color: #292929;
-    margin-top: 70px;
-    margin-right: -20px;
+    margin-top: 40px;
+    margin-right: -80px;
+
     position: relative;
 
     text-align: center;
@@ -175,13 +181,35 @@ body{
     padding: 5px;
 }
 .icono-sesion:hover{
-    background-color: #EECE13;
+    background-color: #ffffff;
     border-radius: 50%;
  
 }
+.dropdown-menu{
+    padding: 10px;
+
+}
+.login-li{
+    font-size:30px;
+    background-color: #ffffff;
+    padding: 5px;
+}
+.login-li:hover{
+    background-color: #292929;
+    color:white;
+
+
+
+}
+.ocultar-cerrar-sesion{
+    display: none;
+}
+.ocultar-comentarios{
+    display:none;
+}
 
 .content{
-    padding-top: 300px;
+    padding-top: 30vh;
     width: 100%;
     height:auto;
     background-color:rgba(255, 255, 255, 0)
@@ -206,8 +234,8 @@ body{
     src: url(img/Coffee\ for\ Breakfast.ttf);
 }
 @font-face {
-    font-family:"titulo";
-    src:url("img/Coffee\ Latte.ttf")
+    font-family:"dos";
+    src:url("img/Friendly\ Schoolmates\ \(Italic\)\ Font\ by\ Situjuh\ \(7NTypes\).otf")
 }
 .container-info-uno{
     width:100%;
@@ -222,7 +250,7 @@ body{
 .div-uno{
     width: 60%;
     height: 100%;
-    background-color: #4b4a4a;
+
     background-image: url("./img/1.png");
     background-size:cover;
 }
@@ -232,12 +260,12 @@ body{
 .fondo-uno{
     width: 100%;
     height: 100%;
-    background-color: #00000054;
+    background: linear-gradient(to right, transparent,black);
 }
 .div-dos{
     width:40%;
     height: 100%;
-    background-color: #292929;
+    background-color: #000000;
     color: white;
     text-align: center;
     font-size: 40px;
@@ -251,39 +279,86 @@ body{
 
 .container-catalogo{
     width: 100%;
+    margin-top:20px;
     padding:40px;
     margin-bottom:50px ;
-    height: 500px;
+    height: auto;
     display: flex;
     justify-content: space-around;
     align-items: center;
-    background-color:rgb(255, 255, 255);
-    border-bottom:8px dotted black;
+    background-color:rgba(188, 186, 186, 0.136);
+    background-image: url(./img/vector-cafe.jpg);
+    background-repeat: repeat-x;
+    background-size: contain;
+    
+
     
     
 }
 .caja{
-    width: 300px;
-    height:350px;
-    background-color:white;
-    box-shadow: -2px 7px 7px 7px rgb(72, 69, 69);
+    width: 25%;
+    height:55vh;
+
+    border-radius: 20px;;
+
 }
 .uno{
-    margin-top:-50px
+
 }
 .dos{
-    margin-bottom: -35px;
+
 
 }
 .tres{
-    margin-top: -25px
+
 }
 .cuatro{
-    margin-bottom: -45px;
+
 }
 .producto{
-    width: 250px;
-    height:300px;
+    width:100% ;
+    
+    height:63%;
+    border-top-left-radius:10px ;
+    border-top-right-radius:10px ;
+    
+}
+.producto-body{
+    background-color: #009f28;
+    width:100%;
+    padding:25px;
+    border-bottom-left-radius:10px ;
+    border-bottom-right-radius:10px ;
+
+    height:37%;
+
+}
+.producto-body h5 b{
+    font-size:33px;
+
+}
+
+.producto-body a{
+
+    font-size:25px;
+    background-color: #ffffff;
+    border:solid #303030;
+    color:#292929;
+    padding:10px;
+    border-radius: 10px;
+    text-decoration: none;
+
+    
+}
+.producto-body a:hover{
+
+
+    background-color: #292929;
+    text-decoration: underline;
+
+    color:rgb(255, 255, 255);
+
+
     
 }
 .w-100{
@@ -311,24 +386,24 @@ body{
     z-index: 601;
     justify-content: space-around;
     padding:20px 20px 10px 80px;
-    background: rgb(7,195,47);
+    background: rgb(216, 216, 216);
     background-size: cover;
-background: radial-gradient(circle, rgba(7,195,47,1) 0%, rgba(255,254,254,1) 100%);
+
 
 }
 .titulos{
     font-size:33px;
     margin-top: 5px;
-    margin-left: 240px;
+    margin-left: 100px;
 }
 .servicio-uno{
     
-    width: 420px;
-    height: 390px;
+    width: 360px;
+    height: 330px;
     position:absolute;
     background-color:rgb(0, 86, 177);
-    margin-top:430px ;
-    margin-left:-280px ;
+    margin-top:350px ;
+    margin-left:-200px ;
     transform: rotate(10deg);
     z-index: 5;
     box-shadow: -7px 7px 5px 2px rgba(161,161,161,0.75);
@@ -338,12 +413,12 @@ transition: .7s;
 
 }
 .servicio-dos{
-    width: 420px;
-    height: 390px;
+    width: 360px;
+    height: 330px;
     position:absolute;
     background-color:red;
     margin-top: 150px;
-    margin-left: 400px;
+    margin-left: 100px;
     transform: rotate(20deg);
     z-index: 1;
     box-shadow: -7px 7px 5px 2px rgba(19, 18, 18, 0.53);
@@ -360,12 +435,12 @@ transition: .7s;
     z-index: 100;
 }
 .servicio-tres{
-    width: 420px;
-    height: 390px;
+    width: 360px;
+    height: 330px;
     position:absolute;
     background-color:rgb(242, 255, 0);
     margin-top: 50px;
-    margin-left:-450px ;
+    margin-left:-240px ;
     
     transform: rotate(-15deg);
     z-index: 10;
@@ -380,9 +455,9 @@ transition: .7s;
 }
 .titulo-servicios{
     position: absolute;
-    font-size:50px;
+    font-size:40px;
     margin-top:50px;
-   margin-left: 500px;
+   margin-left: 100px;
    transform: rotate(12deg);
    
 
@@ -390,13 +465,37 @@ transition: .7s;
    
 }
 .img-servicio{
-    width: 360px;
-    height: 330px;
+    width: 300px;
+    height: 270px;
     margin-top:20px;
     margin-left:30px;
     
 }
+.contenedor-servicios-dos{
 
+    margin-top:220px;
+    width:400px;
+    height:500px;
+    background-color:rgb(14, 254, 58);
+    margin-right: -19vw;
+    border: solid;
+    border-radius:20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+.lista-servicios{
+    margin: 5px;
+
+}
+.menu-lista{
+    border:solid ;
+    border-radius:10px;
+    padding:10px;
+ 
+}
 
 
 
@@ -408,9 +507,9 @@ transition: .7s;
 footer{
 
    
-    margin-top: 100px;
+    margin-top: 80px;
     width:100%;
-    height:60vh;
+    height:60.5vh;
     background-color:#292929;
     position: relative;
     z-index: 604;
@@ -418,7 +517,7 @@ footer{
     
 }
 .wave-footer{
-    margin-top:-44vh;
+    margin-top:-50.5vh;
 }
 .container-footer{ 
     display: flex;
