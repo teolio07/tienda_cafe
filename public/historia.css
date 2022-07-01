@@ -44,7 +44,7 @@ p{
 }
 .container-tres{
     
-    background-color:rgb(26, 158, 30);
+    background-color:#009f28;
     width: 95%;
     margin: auto;
     height: 480px;
@@ -140,9 +140,13 @@ p{
     margin-top:45px;
     display:flex;
     padding: 20px;
+    justify-content: space-around;
     
     background-color: rgb(47, 44, 44);
 
+}
+.container-cinco h1{
+    color:white;
 }
 .iframe-youtube{
     margin-right: 50px;

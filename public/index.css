@@ -491,7 +491,9 @@ transition: .7s;
 
 }
 .menu-lista{
-    border:solid ;
+    border:solid #292929;
+    color:white;
+    background-color: #292929;
     border-radius:10px;
     padding:10px;
  
