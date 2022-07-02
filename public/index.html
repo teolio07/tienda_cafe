@@ -121,7 +121,7 @@
                 </ul>
                <!--  logo de la pagina web -->
 
-                <div class="container-logo"><img class="logo" src="img/cafre.svg" alt=""></div>
+                <div class="container-logo" id="logo"><img class="logo" src="img/cafre.svg" alt=""></div>
 
                <!-- botton para iniciar sesion o registrarse -->
                 <div class="sesion"  >
@@ -129,10 +129,11 @@
                     <i class="icono-sesion fa-solid fa-circle-user"data-bs-toggle="dropdown" aria-expanded="false">
                     </i>
                     <ul class="dropdown-menu " >
-                        <li class="login-li "  data-bs-toggle="modal" data-bs-target="#inicio" id="inicio">iniciar sesion</li>
-                        <li class="login-li "data-bs-toggle="modal" data-bs-target="#registro" id="registro" >registrarse</li>
-                        <li class="login-li ocultar-cerrar-sesion"  data-bs-toggle="modal" data-bs-target="#inicio" id="cerrar-sesion">comentarios</li>
-                        <li class="login-li ocultar-comentarios"data-bs-toggle="modal" data-bs-target="#registro" id="comentario">cerrar sesion</li>
+                      //esto es lo que hay que arreglar del login
+                        <li class="login-li mostrar"  data-bs-toggle="modal" data-bs-target="#inicio" >iniciar sesion</li>
+                        <li class="login-li mostrar"data-bs-toggle="modal" data-bs-target="#registro" >registrarse</li>
+                        <li class="login-li ocultar ">comentarios</li>
+                        <li class="login-li ocultar" id="cerrar_sesion" >cerrar sesion</li>
 
                     </ul>
                   </div>
@@ -382,19 +383,13 @@
       function desplazar(){
           
           document.getElementById("top").style.transform="translate(0,-600px)"
-          document.getElementById("bottom").style.transform="translate(0,200vh)"
+          document.getElementById("bottom").style.transform="translate(0,2200px)"
           document.getElementById("body").style.overflowY="visible"
           }
           setTimeout(desplazar,3000)
 
           //mytoken 
-          let a=true;
-          if(a==true){
-            document.getElementById("inicio").style.display="none"
-            document.getElementById("registro").style.display="none"
-            document.getElementById("cerrar-sesion").style.display="visible"
-            document.getElementById("comentario").style.display="visible"
-          }
+          
 
           
           

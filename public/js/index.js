@@ -30,7 +30,7 @@ btnRegister.addEventListener('click',(event)=>{
                     title: 'Something went wrong ',
                     text: res.message || res.error ,
                     showConfirmButton: false,
-                    timer: 1500
+                    timer: 3000
                 })
             ) 
             console.log(res)
@@ -40,7 +40,7 @@ btnRegister.addEventListener('click',(event)=>{
                 title: `welcome ${res.name}`,
                 text: 'El registro fue un exito',
                 showConfirmButton: false,
-                timer: 1500
+                timer: 3000
             })
             if(res.name){ 
                 setTimeout(()=>{ 
@@ -84,7 +84,7 @@ btnLogin.addEventListener('click',(event)=>{
                     title: 'Something went wrong ',
                     text: res.message || res.error ,
                     showConfirmButton: false,
-                    timer: 1500
+                    timer: 3000
                 })
             ) 
             console.log(res)
@@ -94,20 +94,53 @@ btnLogin.addEventListener('click',(event)=>{
                 title: `Welcome ${res.name}`,
                 text: res.information ,
                 showConfirmButton: false,
-                timer: 1500
+                timer: 3000
             })
             token = res.token
             localStorage.setItem("token", token)
-            if(token){ 
-                setTimeout(()=>{ 
-                    window.location.reload() 
-                },1000)
-            } 
+            if(token){
+                //aca validamos si hay token y escondemos el registrar e iniciar con la clase .mostrar
+                /* document.querySelectorAll(".mostrar").style.display="none" */
+                
+                
+                setTimeout(()=>{window.location.reload()},2000)
+
+                
+                 
+       
+            }else{
+                // de lo contrario quedara escondido el comentario y el cerrar sesion con la clase ocultar
+                /* document.querySelectorAll(".ocultar").style.display="none" */
+            }
+            
+            
+        
+        
 
         });
     }catch(error){console.log(error)} 
 
 }) 
+//cree un if si en el localstorage hay un token entonces va a esconder el iniciar sesion y registrarse
+if(localStorage.length>0){
+    document.querySelectorAll(".mostrar").style.display="none"
+
+//si no hay token entonces el comentarios y cerrar sesion se van a esconder
+}else{document.querySelectorAll(".ocultar").style.display="none"
+
+}
+//aca esta la funcion de cerrar sesion que quita el cerrar sesion y comentario y pone registrarse e iniciar sesion
+const cerrar=()=>{
+    document.querySelectorAll(".ocultar").style.display="none"
+    document.querySelectorAll(".mostrar").style.display=""
+    localStorage.removeItem("token")
+
+
+
+}
+esconder=document.getElementById("cerrar_sesion")
+esconder.addEventListener("click",cerrar)
+
 
 
 
