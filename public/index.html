@@ -129,15 +129,14 @@
                     <i class="icono-sesion fa-solid fa-circle-user"data-bs-toggle="dropdown" aria-expanded="false">
                     </i>
                     <ul class="dropdown-menu " >
-                      //esto es lo que hay que arreglar del login
-                        <li class="login-li mostrar"  data-bs-toggle="modal" data-bs-target="#inicio" >iniciar sesion</li>
-                        <li class="login-li mostrar"data-bs-toggle="modal" data-bs-target="#registro" >registrarse</li>
-                        <li class="login-li ocultar ">comentarios</li>
-                        <li class="login-li ocultar" id="cerrar_sesion" >cerrar sesion</li>
+                        <li class="login-li loggedOut" id="iniciar_sesion" data-bs-toggle="modal" data-bs-target="#inicio" >iniciar sesion</li>
+                        <li class="login-li loggedOut" id="registrarse"  data-bs-toggle="modal" data-bs-target="#registro" >registrarse</li>
+                        <li class="login-li loggedIn" id="comentarios">comentarios</li>
+                        <li class="login-li loggedIn" id="cerrar_sesion" >cerrar sesion</li>
 
                     </ul>
                   </div>
-                  <h3>login</h3>
+                  <h3 id="usuarioLogueado">Inicio sesion</h3>
                </div>            
                 
                
