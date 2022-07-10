@@ -8,6 +8,7 @@ const schemaRegister = Joi.object({
     email: Joi.string().min(6).max(255).required().email() ,
     password: Joi.string().min(6).max(255).required(),
     phone: Joi.string().min(6).max(255).required(),
+    avatarUrl: Joi.string().min(6).max(255).required()
    
 })
 
@@ -36,11 +37,12 @@ const userRegister =async (req,res)=>{
 
 
     try{
+        let avatarUrl = req.body.avatarUrl
         let name = req.body.name
         let email = req.body.email
         let password = req.body.password
         let phone = req.body.phone
-        const register = service.usersRegister(name,email,phone,password)
+        const register = service.usersRegister(avatarUrl,name,email,phone,password)
         register.then((response)=>{ 
             if(response.isBoom == true){
                 return res.status(response.output.payload.statusCode).json(response.output.payload);      
@@ -73,6 +75,8 @@ const userLogin = async (req,res)=>{
         login.then((resolve)=>{  
                 let name = resolve.name
                 let token = resolve.token 
+                let avatarUrl = resolve.avatarUrl
+                console.log(avatarUrl)
                 if(token == null){ 
                    return res.status(resolve.output.statusCode).json(resolve.output.payload)
                 }
@@ -80,7 +84,8 @@ const userLogin = async (req,res)=>{
                     information:'Logged in',
                     error: null,
                     token,
-                    name
+                    name,
+                    avatarUrl
                 })
 
             }

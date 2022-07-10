@@ -33,7 +33,13 @@ const usersSchema = mongoose.Schema({
         type: Date,
         default: Date.now
     },
-    lastLogin: Date
+    lastLogin: Date,
+    avatarUrl:{
+        type: String,
+        required:true,
+        max:255
+    }
+
 })
 
 const userSchema = mongoose.model('users', usersSchema)

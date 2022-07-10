@@ -9,7 +9,7 @@ const boom = require('@hapi/boom')
 
 class usersService{
 
-    async usersRegister(name,email,phone,password){ 
+    async usersRegister(avatarUrl,name,email,phone,password){ 
         //validate if the email exists
         const isEmailExist = await userSchema.findOne({ email });
         if (isEmailExist) {
@@ -26,6 +26,7 @@ class usersService{
         //data for create the user
         try{
             const userRegister = new userSchema() 
+            userRegister.avatarUrl = avatarUrl
             userRegister.name = name 
             userRegister.email = email
             userRegister.phone = phone
@@ -54,11 +55,14 @@ class usersService{
             //data for login
             let nameUser= validateEmail.name
             let idUser = validateEmail._id
+            let avatarUrl = validateEmail.avatarUrl
+            console.log(avatarUrl + "desde validateEmail")
             let token = tokens.createToken(nameUser,idUser) 
         
             return ({message: "Session started", 
                     token,
-                    name: nameUser
+                    name: nameUser,
+                    avatarUrl: avatarUrl
 
             })
         }
