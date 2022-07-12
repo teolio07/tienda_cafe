@@ -115,7 +115,7 @@ btnLogin.addEventListener('click',(event)=>{
 }) 
 
 
-            //change when logging in
+            
 let cerrar_sesion = document.getElementById('cerrar_sesion')
 let iniciar_sesion = document.getElementById('iniciar_sesion')
 let registrarse = document.getElementById('registrarse')
@@ -123,8 +123,9 @@ let comentarios = document.getElementById('comentarios')
 let token = sessionStorage.getItem('token')
 let nameUser = sessionStorage.getItem('nameUser')
 let imageAvatar = document.getElementById('imageAvatar')
-if(token){ 
 
+
+if(token){ 
     let avatarUrl = sessionStorage.getItem('avatarUrl')
     cerrar_sesion.style.display = 'block'
     comentarios.style.display = 'block'

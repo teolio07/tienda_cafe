@@ -54,6 +54,7 @@ const userRegister =async (req,res)=>{
         
     }
     catch(error){
+        console.log(error)
         return res.send('Server error')
     }
 }
@@ -76,7 +77,6 @@ const userLogin = async (req,res)=>{
                 let name = resolve.name
                 let token = resolve.token 
                 let avatarUrl = resolve.avatarUrl
-                console.log(avatarUrl)
                 if(token == null){ 
                    return res.status(resolve.output.statusCode).json(resolve.output.payload)
                 }
@@ -92,6 +92,7 @@ const userLogin = async (req,res)=>{
         )
     }
     catch(error){ 
+        console.log(error)
         return ('Server error')
     }    
 
