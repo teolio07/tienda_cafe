@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    
+    <label>id comment</label>
+    <input type="text" name="commentId" id="commentId">
+    <button type="button" id="btn-id" >boton</button>
+
+    <script>
+
+        btn = document.getElementById('btn-id') 
+        btn.addEventListener('click',(event)=>{
+            inputId = document.getElementById('commentId').value
+            data = [inputId,'teo1@gmail.com']
+            event.preventDefault()
+            fetch(`http://localhost:3001/api/v1/comment/${data}`, {
+                method: 'DELETE',
+            })
+            .then(res => res.json())
+            .then(res=> {
+                console.log(res);
+            });
+        }) 
+    </script> 
+</body>
+</html>

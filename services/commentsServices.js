@@ -40,11 +40,12 @@ class commentsService{
     }
     
     async updateComment(idComment,newComment){
-        let comment = await commentUserSchema.findById(idComment)
-        if(!comment) return (boom.notFound('Comment not found'))
-        if(newComment.email != comment.email) return (boom.badData('no puedes editar este comentario')) 
         try{
-            let updateComment = await commentUserSchema.findOneAndUpdate(idComment,newComment); 
+            let commentById = await commentUserSchema.findById(idComment)
+            if(!commentById) return (boom.notFound('Comment not found'))
+            if(newComment.email != commentById.email) return (boom.badData('no puedes editar este comentario')) 
+
+            let updateComment = await commentUserSchema.findOneAndUpdate(idComment,newComment.comment); 
             return updateComment;
         }
         catch(error){
@@ -55,8 +56,19 @@ class commentsService{
         
     }
 
-    async deleteComment(){
-        
+    async deleteComment(idComment,email){
+        try{
+            let commentById = await commentUserSchema.findById(idComment); 
+            if(!commentById) return (boom.notFound('Comment not found'))
+            if(email != commentById.email) return (boom.badData("You can't delete the comment"))
+
+            let commentDelete = await commentUserSchema.findByIdAndDelete(idComment)
+            return commentDelete;
+        }            
+        catch(error){
+            console.log(error)
+            return (boom.badImplementation('Server error deleting comment'))
+        }
     }
 }
 
