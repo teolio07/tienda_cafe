@@ -17,7 +17,7 @@ btnRegister.addEventListener('click',(event)=>{
 
     try{
         event.preventDefault();
-        fetch('http://localhost:3001/api/v1/user/register', {
+        fetch('https://tiendacafe.herokuapp.com/api/v1/user/register', {
             method: 'POST',
             headers: {
             "Content-Type": "application/json",
@@ -72,7 +72,7 @@ btnLogin.addEventListener('click',(event)=>{
     try{
         event.preventDefault();
 // https://tiendacafe.herokuapp.com/api/v1/user/login
-        fetch('http://localhost:3001/api/v1/user/login', {
+        fetch('https://tiendacafe.herokuapp.com/api/v1/user/login', {
             method: 'POST',
             headers: {
             "Content-Type": "application/json",
@@ -170,7 +170,7 @@ function cerrar_comentario(){
 }
 function mostrar_comentario(){
     document.getElementById("container-comment").style.display="block"
-    var peticion=fetch("http://localhost:3001/api/v1/comment/getcomments")
+    var peticion=fetch("https://tiendacafe.herokuapp.com/api/v1/comment/getcomments")
     .then(response => response.json())
     .then(json => {console.log(json[0].comment)
         let comment=``
@@ -196,7 +196,7 @@ btnComment.addEventListener('click',(event)=>{
     let dataComment = {name:name, email: email, comment:comment.value}                                                                                                                   
     try{                                                                                                                                                                                 
         event.preventDefault();                                                                                                                                                          
-        fetch('http://localhost:3001/api/v1/comment/createComment', {                                                                                                                    
+        fetch('https://tiendacafe.herokuapp.com/api/v1/comment/createComments', {                                                                                                                    
         method: 'POST',                                                                                                                                                              
         headers:{                                                                                                                                                                    
             "Content-type": "application/json"                                                                                                                                       
@@ -215,7 +215,7 @@ btnComment.addEventListener('click',(event)=>{
 
 })
 function actualizar(){
-    var peticion=fetch("http://localhost:3001/api/v1/comment/getcomments")
+    var peticion=fetch("https://tiendacafe.herokuapp.com/api/v1/comment/getcomments")
         .then(response => response.json())
         .then(json => {console.log(json[0].comment)
             let comment=``
