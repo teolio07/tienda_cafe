@@ -72,7 +72,7 @@ btnLogin.addEventListener('click',(event)=>{
     try{
         event.preventDefault();
 // https://tiendacafe.herokuapp.com/api/v1/user/login
-        fetch('https://tiendacafe.herokuapp.com/api/v1/user/login', {
+        fetch('https://tiendacafe.herokuapp.com/api/v1/user/login ', {
             method: 'POST',
             headers: {
             "Content-Type": "application/json",
@@ -196,7 +196,7 @@ btnComment.addEventListener('click',(event)=>{
     let dataComment = {name:name, email: email, comment:comment.value}                                                                                                                   
     try{                                                                                                                                                                                 
         event.preventDefault();                                                                                                                                                          
-        fetch('https://tiendacafe.herokuapp.com/api/v1/comment/createComments', {                                                                                                                    
+        fetch('https://tiendacafe.herokuapp.com/api/v1/comment/createComment', {                                                                                                                    
         method: 'POST',                                                                                                                                                              
         headers:{                                                                                                                                                                    
             "Content-type": "application/json"                                                                                                                                       
