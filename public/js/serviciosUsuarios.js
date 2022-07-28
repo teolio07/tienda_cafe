@@ -6,6 +6,7 @@ var vali = true
 //**********************Register
 btnRegister.addEventListener('click',(event)=>{
     let avatarUrl = document.getElementById('avatarUser')
+    console.log(avatarUrl)
     let name = document.getElementById('nameUser');  
     let email = document.getElementById('emailUser');
     let phone = document.getElementById('phoneUser') 
@@ -125,16 +126,18 @@ let nameUser = sessionStorage.getItem('nameUser')
 let imageAvatar = document.getElementById('imageAvatar')
 
 
+
 if(token){ 
     let avatarUrl = sessionStorage.getItem('avatarUrl')
+    document.getElementById('logo-u').style.display="none"
     cerrar_sesion.style.display = 'block'
     comentarios.style.display = 'block'
     iniciar_sesion.style.display = 'none'
     registrarse.style.display = 'none'
     document.getElementById('usuarioLogueado').innerHTML = nameUser 
-    imageAvatar.style.width = '100px'
-    imageAvatar.style.width = '100px'
-    imageAvatar.style.borderRadius = '20px'
+    imageAvatar.style.height = '80px'
+    imageAvatar.style.width = '80px'
+    imageAvatar.style.borderRadius = '50%'
     imageAvatar.src = avatarUrl
 
 
@@ -162,4 +165,86 @@ cerrar_sesion.addEventListener('click',(event)=>{
     setTimeout(()=>{window.location.reload()},2000)
 
 })
+function cerrar_comentario(){
+    document.getElementById("container-comment").style.display="none";
+}
+function mostrar_comentario(){
+    document.getElementById("container-comment").style.display="block"
+    var peticion=fetch("http://localhost:3001/api/v1/comment/getcomments")
+    .then(response => response.json())
+    .then(json => {console.log(json[0].comment)
+        let comment=``
+    for (let coment=0; coment<json.length; coment++) {
+
+            comment+=`<div class="comment-chat" id="texto">${json[coment].comment}</div>`
+            
+
+          
+    
+    }
+    document.getElementById("body-comment").innerHTML=comment
+    })
+
+}
+//agrtegar comentario
+
+btnComment = document.getElementById('btn-comment')                                                                                                                                      
+btnComment.addEventListener('click',(event)=>{                                                                                                                                           
+    let comment = document.getElementById('comment')                                                                                                                                     
+    let name = "teoooo"                                                                                                                                                                  
+    email = "teo@gmail.com"                                                                                                                                                          
+    let dataComment = {name:name, email: email, comment:comment.value}                                                                                                                   
+    try{                                                                                                                                                                                 
+        event.preventDefault();                                                                                                                                                          
+        fetch('http://localhost:3001/api/v1/comment/createComment', {                                                                                                                    
+        method: 'POST',                                                                                                                                                              
+        headers:{                                                                                                                                                                    
+            "Content-type": "application/json"                                                                                                                                       
+        },                                                                                                                                                                           
+        body: JSON.stringify(dataComment)                                                                                                                                            
+    })                                                                                                                                                                               
+        .then(res => res.json())                                                                                                                                                     
+        .then(res =>{                                                                                                                                                                
+            console.log(res) 
+            actualizar()                                                                                                                                                        
+        })
+
+    }catch(error){                                                                                                                                                                       
+    console.log(error)                                                                                                                                                               
+    }
+
+})
+function actualizar(){
+    var peticion=fetch("http://localhost:3001/api/v1/comment/getcomments")
+        .then(response => response.json())
+        .then(json => {console.log(json[0].comment)
+            let comment=``
+        for (let coment=0; coment<json.length; coment++) {
+            let cantidad=json.length
+            
+            if(coment<cantidad-1){
+                comment+=`<div class="comment-chat" id="texto">${json[coment].comment}</div>`
+                
+
+            }else{
+                comment+=`<div class="comment-send" id="texto">${json[coment].comment}</div>`
+
+            }
+            
+        
+        }
+        document.getElementById("body-comment").innerHTML=comment
+        })
+
+        
+        
+        .catch(err => console.error("error"+err))
+        console.log(peticion)
+    
+    console.log(comentarios+"hola")
+}
+
+//mostrar comentarios 
+
+
 

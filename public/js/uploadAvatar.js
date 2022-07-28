@@ -11,8 +11,8 @@ var uploadAvatar = cloudinary.createUploadWidget({
     if (!error && result && result.event === "success") { 
         console.log('Done! Here is the image info: ', result.info); 
         avatarUrl = result.info.secure_url;
-        avatarUser.style.width = '100px'
-        avatarUser.style.height = '100px'
+        avatarUser.style.width = '80px'
+        avatarUser.style.height = '80px'
 
         avatarUser.src = avatarUrl; 
     }

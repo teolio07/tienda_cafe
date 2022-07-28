@@ -77,6 +77,7 @@ const userLogin = async (req,res)=>{
                 let name = resolve.name
                 let token = resolve.token 
                 let avatarUrl = resolve.avatarUrl
+                let email= resolve.email
                 if(token == null){ 
                    return res.status(resolve.output.statusCode).json(resolve.output.payload)
                 }
@@ -85,7 +86,8 @@ const userLogin = async (req,res)=>{
                     error: null,
                     token,
                     name,
-                    avatarUrl
+                    avatarUrl,
+                    email
                 })
 
             }

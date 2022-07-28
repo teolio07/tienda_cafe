@@ -55,12 +55,14 @@ class usersService{
             let nameUser= validateEmail.name
             let idUser = uniqid()
             let avatarUrl = validateEmail.avatarUrl
+            let emailUser = validateEmail.email
             let token = tokens.createToken(nameUser,idUser) 
         
             return ({message: "Session started", 
                     token,
                     name: nameUser,
-                    avatarUrl: avatarUrl
+                    avatarUrl: avatarUrl,
+                    email:emailUser
 
             })
         }

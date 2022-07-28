@@ -13,76 +13,136 @@
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body onload="recargar()" id="body">
- <!--  modal de inicio de sesion -->
-  <div class="modal fade" id="inicio" tabindex="-1" aria-labelledby="exampleModal" aria-hidden="true">
+  <!-- campo para los comentarios -->
+  <div class="container-comment" id="container-comment">
+    <div class="header-comment">
+        <ion-icon name="close-outline" class="cerrar-comment" onclick="cerrar_comentario()"></ion-icon>
+        <div class="img-comment"><ion-icon name="book-outline" class="img-comentario"></ion-icon></div>
+        <h1 class="nombre-comment">Deja tu comentario</h1>
+        
+
+    </div>
+    <div class="body-comment" id="body-comment">
+        
+        
+        
+
+
+    </div>
+    <div class="footer-comment">
+        <input type="text" class="input-comment" id="comment" name="comment">
+        
+        <ion-icon name="navigate-circle-outline" class="btn-comment" id="btn-comment"></ion-icon>
+        
+    </div>
+
+</div>
+
+ 
+
+<!--   modal del inicio de sesion -->
+<div class="modal fade" id="inicio" tabindex="-1" aria-labelledby="exampleModal" aria-hidden="true">
+  <div class="modal-dialog modal-content">
+    <div class="content-modal">
+      <div class="header-modal">
+        <i class="fa-solid fa-circle-user icono-usuario"></i>
+        <h5 class="titulo-modal" id="exampleModal">Iniciar Sesion</h5>
+        
+      </div>
+      <div class="body-modal">
+          <form action="" class="form">
+              <label class="tituloss">Email   
+              </label>
+                  <input type="text" class="text" name="email" id="email">
+              <label class="tituloss">Password
+              </label>
+                  <input type="password" class="text" name="password" id="password">           
+              
+              
+
+      
+      </div>
+      <div class="footer-modal">
+        <a class="boton-login"data-bs-dismiss="modal" id="cerrar-login">Cerrar</a>
+        <a class="boton-login"  id="btnLogin">Iniciar Sesion</a>
+      </div>
+    </div>
+  </div>
+</div>
+<!--   modal del registro de usuario -->
+  <div class="modal fade" id="registro" tabindex="-1" aria-labelledby="exampleModal" aria-hidden="true">
     <div class="modal-dialog modal-content">
       <div class="content-modal">
         <div class="header-modal">
-          <h5 class="titulo-modal" id="exampleModal">Iniciar sesion</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id=""></button>
+          <i class="fa-solid fa-circle-user icono-usuario"></i>
+          <h5 class="titulo-modal" id="exampleModal">Registro Usuario</h5>
+          
         </div>
         <div class="body-modal">
             <form action="" class="form">
-                <label class="tituloss">Email   
-                </label>
-                    <input type="text" class="text" name="email" id="email" >
-                <label class="tituloss">Password
-                </label>
-                    <input type="password" class="text"  name="password" id="password">
-                    
-                
-                
-
-        
+                <label class="tituloss" >Nombre Completo</label>
+                <input type="text" class="text" name="name"id="nameUser"> 
+                <label class="tituloss">Email</label>
+                <input type="text" class="text" name="emailUser" id="emailUser">
+                <label class="tituloss">Telefono</label>
+                <input type="text" class="text" name="phoneUser" id="phoneUser">
+                <label class="tituloss">Contraseña</label>
+                <input type="password" class="text" id="passwordUser" name="passwordUser">
+                <label class="tituloss">Confirmar contraseña</label>
+                <input type="password" class="text" name="confirmPassword" id="confirmPassword">
+                <div>
+                  <img src="" id="avatarUser">
+                  <button id="btn-avatar" type="button">subir foto</button>
+                </div>
+            </form>
         </div>
         <div class="footer-modal">
-          <a class="link-registro"data-bs-dismiss="modal" >-cerrar-</a>
-          <a class="link-registro"  id="btnLogin">-iniciar sesion-</a>
+          <a class="boton-login"data-bs-dismiss="modal">Cerrar</a>
+          <a class="boton-login"  id="btnRegister">Registrarse</a>
         </div>
       </div>
     </div>
   </div>
-<!--   modal de registro de usuario -->
-  <div class="modal fade" id="registro" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <!-- modal de comentario -->
+  <div class="modal fade" id="comentario" tabindex="-1" aria-labelledby="exampleModal" aria-hidden="true">
     <div class="modal-dialog modal-content">
-      <div class="content-modal ">
+      <div class="content-modal">
         <div class="header-modal">
-          <h5 class="titulo-modal" id="exampleModalLabel">Registro Usuario</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <i class="fa-solid fa-circle-user icono-usuario"></i>
+          <h5 class="titulo-modal" id="exampleModal">Comentarios</h5>
+          
         </div>
         <div class="body-modal">
-            <form action="" class="form">
-                <label class="tituloss">Nombre
-                </label>
-                    <input type="text" class="input" name="name"id="nameUser"> 
+            <form action="" class="body-comment">
+                <label class="tituloss" >Escribe Tu comentario</label>
+                <textarea id="comment" name="comment" class=" comment" rows="5" cols="1"></textarea> 
+                <label class="tituloss">Califica tu experencia con nosotros:</label>
                 
-                <label class="tituloss">Email   
-                </label>
-                <input type="text" class="input" name="emailUser" id="emailUser">
-                
-                <label class="tituloss">Telefono
-                </label>
-                    <input type="text" class="input"  name="phoneUser" id="phoneUser">
-                <label class="tituloss">Password
-                </label>
-                    <input type="password" class="input" id="passwordUser" name="passwordUser">
-                <label class="tituloss">Confirmar Password
-                </label>
-                    <input type="password" class="input" name="confirmPassword" id="confirmPassword">
+                <p class="clasificacion">
+                  <input id="radio1" type="radio" name="estrellas" value="5">
+                  <label for="radio1" class="label">}</label>
+                  <input id="radio2" type="radio" name="estrellas" value="4">
+                  <label for="radio2" class="label">}</label>
+                  <input id="radio3" type="radio" name="estrellas" value="3">
+                  <label for="radio3" class="label">}</label>
+                  <input id="radio4" type="radio" name="estrellas" value="2">
+                  <label for="radio4" class="label">}</label>
+                  <input id="radio5" type="radio" name="estrellas" value="1">
+                  <label for="radio5" class="label">}</label>
+                </p>
                 
 
-        
         </div>
         <div class="footer-modal">
-          <a class="link-registro"data-bs-dismiss="modal" >-cerrar-</a>
-          <a class="link-registro" id="btnRegister">-iniciar sesion-</a>
-
+          <a class="boton-login "  id="btnComment">Enviar Comentario</a>
         </div>
       </div>
     </div>
   </div>
+
+
 <!--   parte superior de la animacion -->
-    <div class="container-top" id="top"> 
+    <div class="container-top historia" id="top"> 
       <div class="inicio-top">
         <h1> "EL CAFE DE LA ESQUINA" </h1>
         <img src="img/cafre.svg" class="inicio-imagen"
@@ -90,7 +150,7 @@
 
       </div>
         <svg class="wave-top" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-            <path fill="#1fb344" fill-opacity="1" d="M0,128L80,128C160,128,320,128,480,144C640,160,800,192,960,192C1120,192,1280,160,1360,144L1440,128L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z"></path>
+            <path fill="#009f28" fill-opacity="1" d="M0,128L80,128C160,128,320,128,480,144C640,160,800,192,960,192C1120,192,1280,160,1360,144L1440,128L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z"></path>
         </svg>  
     </div>
   <!--   parte inferior de la animacion -->
@@ -105,8 +165,8 @@
                 
     </div>
     <!-- inicio del header -->
-    <div class="menu">
-        <header class="header">
+    <div class="menu historia">
+        <header class="header-historia">
             <div class="header-container"> 
                 
                 <!-- lista items menu -->
@@ -121,15 +181,21 @@
                <!-- boton para iniciar sesion o registrarse -->
                 <div class="sesion"  >
                   <div class="dropstart">
-                    <i class="icono-sesion fa-solid fa-circle-user"data-bs-toggle="dropdown" aria-expanded="false">
-                    </i>
+                    <div class="icono-login" data-bs-toggle="dropdown" aria-expanded="false" >
+                      <i class="icono-sesion fa-solid fa-circle-user" id="logo-u">
+                      </i>
+                      <img id="imageAvatar" class="icono-sesion" alt="">
+
+                    </div>
                     <ul class="dropdown-menu " >
-                        <li class="login-li"  data-bs-toggle="modal" data-bs-target="#inicio">iniciar sesion</li>
-                        <li class="login-li"data-bs-toggle="modal" data-bs-target="#registro" >registrarse</li>
+                      <li class="login-li loggedOut" id="iniciar_sesion" data-bs-toggle="modal" data-bs-target="#inicio" >iniciar sesion<ion-icon name="enter-outline" class="ico-registro"></ion-icon></li>
+                      <li class="login-li loggedOut" id="registrarse"  data-bs-toggle="modal" data-bs-target="#registro" >registrarse<ion-icon name="person-add-outline" class="ico-registro"></ion-icon></li>
+                      <li class="login-li loggedIn" id="comentarios" onclick="mostrar_comentario()" >comentarios<ion-icon name="mail-outline" class="ico-registro"></ion-icon></li>
+                      <li class="login-li loggedIn" id="cerrar_sesion" >cerrar sesion<ion-icon name="exit-outline" class="ico-registro"></ion-icon></li>
 
                     </ul>
                   </div>
-                  <h3>login</h3>
+                  <h3 id="usuarioLogueado" class="nombre-login">Inicio sesion</h3>
                </div>            
                 
 
@@ -139,8 +205,8 @@
             
         </header>
         <!-- wave que da el efecto de ola en el header -->
-        <svg class="header-wave" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-            <path fill="#1fb344" fill-opacity="1" d="M0,128L80,128C160,128,320,128,480,144C640,160,800,192,960,192C1120,192,1280,160,1360,144L1440,128L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z"></path>
+        <svg class="header-wave-historia" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+            <path fill="#009f28" fill-opacity="1" d="M0,128L80,128C160,128,320,128,480,144C640,160,800,192,960,192C1120,192,1280,160,1360,144L1440,128L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z"></path>
         </svg>
 
     </div>
@@ -179,8 +245,8 @@
             <iframe class="iframe-youtube" width="460" height="245" class="iframe" src="https://www.youtube.com/embed/2k3kQpiJQ_g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             <div>
               <h1>Encuentra más articulos</h1>
-              <h1><a class="link"  href="">-Canal 1</a></h1>
-              <h1><a class="link"  href="">-La Cronica</a></h1>
+              <h1><a class="link"  href="https://noticias.canal1.com.co/noticias/la-maquina-de-cafe-mas-vieja-de-salento-quindio/">-Canal 1</a></h1>
+              <h1><a class="link"  href="https://www.cronicadelquindio.com/noticias/region/historia-de-salento-calles-en-trochas-artesanos-y-arriera">-La Cronica</a></h1>
               
             </div>
         </div>
@@ -244,7 +310,7 @@
       function desplazar(){
           
           document.getElementById("top").style.transform="translate(0,-600px)"
-          document.getElementById("bottom").style.transform="translate(0,2800px)"
+          document.getElementById("bottom").style.transform="translate(0,2700px)"
           document.getElementById("body").style.overflowY="visible"
           }
           setTimeout(desplazar,3000)
@@ -252,5 +318,10 @@
   
   
   </script>
+   <script src="https://upload-widget.cloudinary.com/global/all.js" type="text/javascript"></script>
+   <script src="js/uploadAvatar.js"></script>
+   <script src="js/serviciosUsuarios.js"></script>
+   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
 </html>
