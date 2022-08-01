@@ -18,6 +18,7 @@ btnRegister.addEventListener('click',(event)=>{
     try{
         event.preventDefault();
         (async()=>{
+            
             let peticion = await fetch('https://tiendacafe.herokuapp.com/api/v1/user/register', {
                 method: 'POST',
                 headers: {
