@@ -18,8 +18,8 @@ btnRegister.addEventListener('click',(event)=>{
     try{
         event.preventDefault();
         
-            
-            fetch('https://tiendacafe.herokuapp.com/api/v1/user/register', {
+        async function regis(){
+            await fetch('http://localhost:3001/api/v1/user/register', {
                 method: 'POST',
                 headers: {
                 "Content-Type": "application/json",
@@ -53,6 +53,9 @@ btnRegister.addEventListener('click',(event)=>{
                     },1000)
                 }           
             });
+ 
+        }            
+        regis();
 
        
     }
