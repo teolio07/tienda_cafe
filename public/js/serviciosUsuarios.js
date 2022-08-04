@@ -19,7 +19,7 @@ btnRegister.addEventListener('click',(event)=>{
         event.preventDefault();
         
             
-            fetch('https://https://tiendacafe.herokuapp.com/api/v1/user/register', {
+            fetch('https://tiendacafe.herokuapp.com/api/v1/user/register', {
                 method: 'POST',
                 headers: {
                 "Content-Type": "application/json",
