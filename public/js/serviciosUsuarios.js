@@ -26,9 +26,9 @@ btnRegister.addEventListener('click',(event)=>{
             },
             body: JSON.stringify(dataRegister)
             })
-            .then(res => res.json())
-            .then(res=> {
-                console.log(res)
+            .then(res => res.text())
+            .then(re=> {
+                console.log(re)
                 if(res.error) return (                
                     Swal.fire({
                         position: 'top-end',
