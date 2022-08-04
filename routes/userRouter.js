@@ -5,7 +5,9 @@ const {verifyToken} = require('../middlewares/validateToken')
 const userRouter = express.Router();
 
 
-userRouter.post('/register', userRegister)
+userRouter.post('/register', (req,res)=>{
+   res.json({valid: "funciona"}).send("holaa") 
+})
 
 userRouter.post('/login', userLogin )
 

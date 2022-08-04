@@ -19,7 +19,7 @@ btnRegister.addEventListener('click',(event)=>{
         event.preventDefault();
         
             
-            fetch('https://tiendacafe.herokuapp.com/api/v1/user/register', {
+            fetch('http://localhost:3001/api/v1/user/register', {
                 method: 'POST',
                 headers: {
                 "Content-Type": "application/json",
@@ -28,6 +28,7 @@ btnRegister.addEventListener('click',(event)=>{
             })
             .then(res => res.json())
             .then(res=> {
+                console.log(res)
                 if(res.error) return (                
                     Swal.fire({
                         position: 'top-end',
