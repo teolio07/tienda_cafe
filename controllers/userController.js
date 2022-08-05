@@ -88,9 +88,7 @@ const userLogin = async (req,res)=>{
     }
     catch(error){ 
         return ('Server error')
-    }
-    
-    
+    }    
 
 }
 
