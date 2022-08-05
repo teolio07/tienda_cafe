@@ -14,6 +14,10 @@ class usersService{
         if (isEmailExist) {
             return (boom.badRequest('User already registered'))
         }
+        console.log(avatarUrl)
+        if(avatarUrl == "http://localhost:3001/"){
+            return (boom.badRequest('You did not select image'))
+        }
 
         //hash password
         let salt = await bcrypt.genSalt(10);

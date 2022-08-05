@@ -6,7 +6,6 @@ var vali = true
 //**********************Register
 btnRegister.addEventListener('click',(event)=>{
     let avatarUrl = document.getElementById('avatarUser')
-    console.log(avatarUrl)
     let name = document.getElementById('nameUser');  
     let email = document.getElementById('emailUser');
     let phone = document.getElementById('phoneUser') 
@@ -103,7 +102,6 @@ btnLogin.addEventListener('click',(event)=>{
             let nameUser = res.name
             let avatar = res.avatarUrl
             let email = res.email
-            console.log(res)
             sessionStorage.setItem("token", token)
             sessionStorage.setItem("nameUser",nameUser)
             sessionStorage.setItem("avatarUrl", avatar)
@@ -126,6 +124,8 @@ let comentarios = document.getElementById('comentarios')
 let token = sessionStorage.getItem('token')
 let nameUser = sessionStorage.getItem('nameUser')
 let imageAvatar = document.getElementById('imageAvatar')
+let imageAvatarComment= document.getElementById('imageAvatarComment')
+let iconoAvatarComment = document.getElementById('iconoAvatarComment')
 
 
 
@@ -136,11 +136,17 @@ if(token){
     comentarios.style.display = 'block'
     iniciar_sesion.style.display = 'none'
     registrarse.style.display = 'none'
+    iconoAvatarComment.style.display = 'none'
     document.getElementById('usuarioLogueado').innerHTML = nameUser 
     imageAvatar.style.height = '80px'
     imageAvatar.style.width = '80px'
     imageAvatar.style.borderRadius = '50%'
     imageAvatar.src = avatarUrl
+    imageAvatarComment.style.height = '100%'
+    imageAvatarComment.style.width = '100%'
+    imageAvatarComment.style.borderRadius = '50%'
+    imageAvatarComment.src = avatarUrl
+
 
 
 
@@ -173,9 +179,9 @@ function cerrar_comentario(){
 }
 function mostrar_comentario(){
     document.getElementById("container-comment").style.display="block"
-    var peticion=fetch("https://tiendacafe.herokuapp.com/api/v1/comment/getcomments")
+    fetch("https://tiendacafe.herokuapp.com/api/v1/comment/getcomments")
     .then(response => response.json())
-    .then(json => {console.log(json[0].comment)
+    .then(json => {
         let comment=``
     for (let coment=0; coment<json.length; coment++) {
 
@@ -208,7 +214,7 @@ btnComment.addEventListener('click',(event)=>{
     })                                                                                                                                                                               
         .then(res => res.json())                                                                                                                                                     
         .then(res =>{                                                                                                                                                                
-            console.log(res) 
+            
             actualizar()                                                                                                                                                        
         })
 
@@ -218,9 +224,9 @@ btnComment.addEventListener('click',(event)=>{
 
 })
 function actualizar(){
-    var peticion=fetch("https://tiendacafe.herokuapp.com/api/v1/comment/getcomments")
+    fetch("https://tiendacafe.herokuapp.com/api/v1/comment/getcomments")
         .then(response => response.json())
-        .then(json => {console.log(json[0].comment)
+        .then(json => {
             let comment=``
         for (let coment=0; coment<json.length; coment++) {
             let cantidad=json.length
@@ -242,9 +248,9 @@ function actualizar(){
         
         
         .catch(err => console.error("error"+err))
-        console.log(peticion)
+        
     
-    console.log(comentarios+"hola")
+    
 }
 
 //mostrar comentarios 
