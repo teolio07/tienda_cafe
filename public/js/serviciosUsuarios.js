@@ -18,17 +18,17 @@ btnRegister.addEventListener('click',(event)=>{
     try{
         event.preventDefault();
         
-        async function regis(){
-            await fetch('https://tiendacafe.herokuapp.com/api/v1/user/register', {
-                method: 'POST',
-                headers: {
+       
+        fetch('https://tiendacafe.herokuapp.com/api/v1/user/register', {
+            method: 'POST',
+            headers: {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify(dataRegister)
             })
-            .then(res => res.text())
-            .then(re=> {
-                console.log(re)
+            .then(res => res.json())
+            .then(res=> {
+                console.log(res)
                 if(res.error) return (                
                     Swal.fire({
                         position: 'top-end',
@@ -54,8 +54,8 @@ btnRegister.addEventListener('click',(event)=>{
                 }           
             });
  
-        }            
-        regis();
+                    
+        
 
        
     }
