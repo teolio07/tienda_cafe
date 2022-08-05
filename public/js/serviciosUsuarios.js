@@ -42,6 +42,7 @@ btnRegister.addEventListener('click',(event)=>{
                 text: 'El registro fue un exito',
                 showConfirmButton: false,
                 timer: 3000
+                
             })
             if(res.name){ 
                 setTimeout(()=>{ 
