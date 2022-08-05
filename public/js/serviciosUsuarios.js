@@ -102,10 +102,12 @@ btnLogin.addEventListener('click',(event)=>{
             let token = res.token
             let nameUser = res.name
             let avatar = res.avatarUrl
+            let email = res.email
             console.log(res)
             sessionStorage.setItem("token", token)
             sessionStorage.setItem("nameUser",nameUser)
             sessionStorage.setItem("avatarUrl", avatar)
+            sessionStorage.setItem("emailUser",email)
  
             if(token){
                 setTimeout(()=>{window.location.reload()},2000)
@@ -155,6 +157,7 @@ cerrar_sesion.addEventListener('click',(event)=>{
     sessionStorage.removeItem('token') 
     sessionStorage.removeItem('nameUser')
     sessionStorage.removeItem('avatarUrl')
+    sessionStorage.removeItem('emailUser')
     Swal.fire({
         position: 'top-end',
         icon: 'success',
@@ -191,8 +194,8 @@ function mostrar_comentario(){
 btnComment = document.getElementById('btn-comment')                                                                                                                                      
 btnComment.addEventListener('click',(event)=>{                                                                                                                                           
     let comment = document.getElementById('comment')                                                                                                                                     
-    let name = "teoooo"                                                                                                                                                                  
-    email = "teo@gmail.com"                                                                                                                                                          
+    let name = sessionStorage.getItem('nameUser')                                                                                                                                                                 
+    email = sessionStorage.getItem('emailUser')                                                                                                                                                         
     let dataComment = {name:name, email: email, comment:comment.value}                                                                                                                   
     try{                                                                                                                                                                                 
         event.preventDefault();                                                                                                                                                          
