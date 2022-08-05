@@ -5,13 +5,12 @@ const tokens = new createTokens;
 
 const bcrypt = require('bcrypt')
 const boom = require('@hapi/boom')
-
-
+const uniqid = require('uniqid');
 class usersService{
 
-    async usersRegister(name,email,phone,password){ 
+    async usersRegister(avatarUrl,name,email,phone,password){ 
         //validate if the email exists
-        const isEmailExist = await userSchema.findOne({ email });
+        let isEmailExist = await userSchema.findOne({ email });
         if (isEmailExist) {
             return (boom.badRequest('User already registered'))
         }
@@ -26,6 +25,7 @@ class usersService{
         //data for create the user
         try{
             const userRegister = new userSchema() 
+            userRegister.avatarUrl = avatarUrl
             userRegister.name = name 
             userRegister.email = email
             userRegister.phone = phone
@@ -34,7 +34,7 @@ class usersService{
             return userRegister
         }
         catch(error){ 
-            return (boom.badImplementation('Error registering user ')) 
+            return (boom.badImplementation('Server error registering user ')) 
         }
     }
 
@@ -53,17 +53,21 @@ class usersService{
 
             //data for login
             let nameUser= validateEmail.name
-            let idUser = validateEmail._id
+            let idUser = uniqid()
+            let avatarUrl = validateEmail.avatarUrl
+            let emailUser = validateEmail.email
             let token = tokens.createToken(nameUser,idUser) 
         
             return ({message: "Session started", 
                     token,
-                    name: nameUser
+                    name: nameUser,
+                    avatarUrl: avatarUrl,
+                    email:emailUser
 
             })
         }
         catch(error){ 
-            return (boom.badImplementation('Error login user')) 
+            return (boom.badImplementation('server error logging the user')) 
         }
         
     }
