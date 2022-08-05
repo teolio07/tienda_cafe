@@ -17,46 +17,39 @@ btnRegister.addEventListener('click',(event)=>{
 
     try{
         event.preventDefault();
-        
-       
         fetch('https://tiendacafe.herokuapp.com/api/v1/user/register', {
             method: 'POST',
             headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(dataRegister)
-            })
-            .then(res => res.json())
-            .then(res=> {
-                console.log(res)
-                if(res.error) return (                
-                    Swal.fire({
-                        position: 'top-end',
-                        icon: 'error',
-                        title: 'Something went wrong ',
-                        text: res.message || res.error ,
-                        showConfirmButton: false,
-                        timer: 3000
-                    })
-                ) 
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(dataRegister)
+        })
+        .then(res => res.json())
+        .then(res=> {
+            if(res.error) return (                
                 Swal.fire({
                     position: 'top-end',
-                    icon: 'success',
-                    title: `welcome ${res.name}`,
-                    text: 'El registro fue un exito',
+                    icon: 'error',
+                    title: 'Something went wrong ',
+                    text: res.message || res.error ,
                     showConfirmButton: false,
                     timer: 3000
                 })
-                if(res.name){ 
-                    setTimeout(()=>{ 
-                        window.location.reload() 
-                    },1000)
-                }           
-            });
- 
-                    
-        
-
+            ) 
+            Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: `welcome ${res.name}`,
+                text: 'El registro fue un exito',
+                showConfirmButton: false,
+                timer: 3000
+            })
+            if(res.name){ 
+                setTimeout(()=>{ 
+                    window.location.reload() 
+                },1000)
+            }           
+        });
        
     }
     catch(error){console.log(error)}
@@ -79,7 +72,7 @@ btnLogin.addEventListener('click',(event)=>{
     try{
         event.preventDefault();
 // https://tiendacafe.herokuapp.com/api/v1/user/login
-        fetch('https://tiendacafe.herokuapp.com/api/v1/user/login ', {
+        fetch('https://tiendacafe.herokuapp.com/api/v1/user/login', {
             method: 'POST',
             headers: {
             "Content-Type": "application/json",
