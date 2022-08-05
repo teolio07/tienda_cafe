@@ -15,7 +15,7 @@ class usersService{
             return (boom.badRequest('User already registered'))
         }
         console.log(avatarUrl)
-        if(avatarUrl == "http://localhost:3001/"){
+        if(avatarUrl == "http://localhost:3001/" || avatarUrl == "https://tiendacafe.herokuapp.com/"){
             return (boom.badRequest('You did not select image'))
         }
 
