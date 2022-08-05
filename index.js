@@ -22,7 +22,7 @@ app.use(express.json())
 const whitelist = ['http://localhost:3001']
 const options = {
     origin: (origin, callback)=>{
-        if(whitelist.includes(origin) ||!origin){ 
+        if(whitelist.includes(origin) !== -1){ 
             callback(null, true); 
         }else{ 
             callback(new Error('no permitido'))
