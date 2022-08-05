@@ -1,12 +1,8 @@
-*{margin: 0;
-padding: 0;}
+
 .content-historia{
     padding-left: 120px;
     padding-right: 120px;
     height:auto;
-}
-.historia{
-    margin-top:-20px;
 }
 .titulo{
     margin-bottom:50px;
@@ -15,13 +11,12 @@ p{
     margin-top: 50px;
     font-size:28px;
 }
-
 .img{
     width: 620px;
     height:350px;
 
     margin-left:15px;
-    background-color: #009f28;
+    background-color: rgb(0, 255, 47);
 
     float: right;
     border:2px solid black;
@@ -49,11 +44,11 @@ p{
 }
 .container-tres{
     
-
-    width: 95%;
+    background-color:rgb(26, 158, 30);
+    width: 80%;
     margin: auto;
     height: 480px;
-    padding-top:30px;
+    padding:40px;
     display: flex;
     justify-content: space-around;
     margin-bottom: 80px;
@@ -75,12 +70,10 @@ p{
 p{
     margin-top:-4px;
    
-   
 }
-.container-tres div p{
-    color: white;
+b{
+    color:rgb(255, 255, 255)
 }
-
 .m-uno{
     margin-top: -8vh;
     margin-left: -13vw;
@@ -112,7 +105,7 @@ p{
 }
 .container-cuatro{
     margin-top:60px;
-    background-color:#009f28;
+    background-color:rgb(6, 202, 82);
     display: flex;
     justify-content: space-around;
     width: 80%;
@@ -145,13 +138,9 @@ p{
     margin-top:45px;
     display:flex;
     padding: 20px;
-    justify-content: space-around;
-    border: 20px ridge rgb(34, 32, 32);
+    
     background-color: rgb(47, 44, 44);
 
-}
-.container-cinco h1{
-    color:white;
 }
 .iframe-youtube{
     margin-right: 50px;

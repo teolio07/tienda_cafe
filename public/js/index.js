@@ -1,5 +1,5 @@
-let btnLogin = document.getElementById('btnLogin') 
-let btnRegister = document.getElementById('btnRegister')
+const btnLogin = document.getElementById('btnLogin') 
+const btnRegister = document.getElementById('btnRegister')
             
 
 //**********************Register
@@ -30,7 +30,7 @@ btnRegister.addEventListener('click',(event)=>{
                     title: 'Something went wrong ',
                     text: res.message || res.error ,
                     showConfirmButton: false,
-                    timer: 3000
+                    timer: 1500
                 })
             ) 
             console.log(res)
@@ -40,7 +40,7 @@ btnRegister.addEventListener('click',(event)=>{
                 title: `welcome ${res.name}`,
                 text: 'El registro fue un exito',
                 showConfirmButton: false,
-                timer: 3000
+                timer: 1500
             })
             if(res.name){ 
                 setTimeout(()=>{ 
@@ -84,25 +84,25 @@ btnLogin.addEventListener('click',(event)=>{
                     title: 'Something went wrong ',
                     text: res.message || res.error ,
                     showConfirmButton: false,
-                    timer: 3000
+                    timer: 1500
                 })
             ) 
+            console.log(res)
             Swal.fire({
                 position: 'top-end',
                 icon: 'success',
                 title: `Welcome ${res.name}`,
                 text: res.information ,
                 showConfirmButton: false,
-                timer: 3000
+                timer: 1500
             })
-            let token = res.token
-            let nameUser = res.name
-            sessionStorage.setItem("token", token)
-            sessionStorage.setItem("nameUser",nameUser)
-            
-            if(token){
-                setTimeout(()=>{window.location.reload()},2000)
-            }            
+            token = res.token
+            localStorage.setItem("token", token)
+            if(token){ 
+                setTimeout(()=>{ 
+                    window.location.reload() 
+                },1000)
+            } 
 
         });
     }catch(error){console.log(error)} 
@@ -110,41 +110,4 @@ btnLogin.addEventListener('click',(event)=>{
 }) 
 
 
-            //change when logging in
-let cerrar_sesion = document.getElementById('cerrar_sesion')
-let iniciar_sesion = document.getElementById('iniciar_sesion')
-let registrarse = document.getElementById('registrarse')
-let comentarios = document.getElementById('comentarios')
-let token = sessionStorage.getItem('token')
-let nameUser = sessionStorage.getItem('nameUser')
-if(token){ 
-    cerrar_sesion.style.display = 'block'
-    comentarios.style.display = 'block'
-    iniciar_sesion.style.display = 'none'
-    registrarse.style.display = 'none'
-    document.getElementById('usuarioLogueado').innerHTML = nameUser 
-
-
-}else{
-    cerrar_sesion.style.display = 'none'
-    comentarios.style.display = 'none'
-    iniciar_sesion.style.display = 'block'
-    registrarse.style.display = 'block'
-}
-
-// **********************  Close Login
-cerrar_sesion.addEventListener('click',(event)=>{
-
-    sessionStorage.removeItem('token') 
-    sessionStorage.removeItem('nameUser')
-    Swal.fire({
-        position: 'top-end',
-        icon: 'success',
-        title: 'Sesion cerrada',
-        showConfirmButton: false,
-        timer: 3000
-    })
-    setTimeout(()=>{window.location.reload()},2000)
-
-})
 

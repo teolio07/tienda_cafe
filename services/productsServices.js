@@ -51,11 +51,10 @@ class productsService{
     
     async productUpdate(productId, update){
         try{
-            let product = await productSchema.findByIdAndUpdate(productId, update)
+            const product = await productSchema.findByIdAndUpdate(productId, update)
             return product
         }
         catch(error){
-            console.log(error)
             return ('error update product')
         }
 

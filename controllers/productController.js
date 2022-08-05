@@ -1,47 +1,50 @@
-const productsService = require('./../services/productsServices'); 
-const service = new productsService;
+const productsService = require('./../services/productsServices') 
+const service = new productsService
 
 const getProducts = (req,res)=>{
     try{  
-        let getProducts = service.getProducts() 
-        getProducts.then((response)=> {
-            res.send(response); 
+        const getProducts = service.getProducts() 
+        getProducts.then((resolve)=> {
+            console.log(resolve)
+            res.send(resolve)   
         } )
          
     }
     catch(error){
-        console.log(error);
-        res.send('Algo salio mal');
+        console.log(error)
+        res.send('algo salio mal')
     }
-};
+}
 
 
 const getProduct= (req,res)=>{ 
     try{ 
-        const { productId  } = req.params;
-        const getProduct = service.getProduct(productId);            
+        const { productId  } = req.params
+        const getProduct = service.getProduct(productId)            
         getProduct.then((resolve)=>{ 
-            console.log(resolve);
-            res.send(resolve);
+            console.log(resolve)
+            res.send(resolve)
         }) 
         
     } 
     catch(error){ 
-        console.log(error);
-        res.send('error get product by id');
+        console.log(error)
+        res.send('error get product by id')
     }
 }
 
 
 const saveProduct = (req,res)=>{
     try{
-        let name = req.body.name;
-        let picture = req.body.picture;
-        let price = req.body.price;
-        let category = req.body.category;
-        const saveProducts = service.saveProducts(name, picture, price, category);
+        let name = req.body.name
+        let picture = req.body.picture
+        let price = req.body.price
+        let category = req.body.category
+        console.log(name)
+        const saveProducts = service.saveProducts(name, picture, price, category)
         saveProducts.then((resolve)=>{
-            res.send(resolve);
+            console.log(resolve)
+            res.send(resolve)
         })
     }
     catch(error){
@@ -51,10 +54,11 @@ const saveProduct = (req,res)=>{
 
 const productDelete = (req,res)=>{
     try{
-        let productId = req.params.productId; 
+        let productId = req.params.productId    
         const productDelete = service.productDelete(productId);
         productDelete.then((resolve)=>{ 
-            res.send(resolve);
+            console.log(resolve);
+            res.send(resolve)
         })
     }
     catch(error){
@@ -66,9 +70,11 @@ const productDelete = (req,res)=>{
 const productUpdate= (req,res)=>{
     try{
         let update = req.body;
-        let productId = req.params.productId;
-        const productUpdate = service.productUpdate(productId, update);
+        let productId = req.params.productId
+        console.log(update)
+        const productUpdate = service.productUpdate(productId, update)
         productUpdate.then((resolve)=>{
+            console.log(resolve)
             res.send(resolve)
         })
     }

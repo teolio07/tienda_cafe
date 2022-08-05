@@ -1,0 +1,98 @@
+
+
+
+
+
+@font-face {
+    font-family:"titulo";
+    src:url("img/Coffee\ Latte.ttf")
+}
+.modal-dialog{
+    border-radius: 5%;
+}
+.content-modal{
+    width:100%;
+    height:101%;
+    background-color: rgb(255, 255, 255);
+    border-radius: 5%;
+}
+.header-modal{
+    display: flex;
+    justify-content: space-between;
+    padding:25px; 
+    border-bottom:2px solid black;
+}
+.titulo-modal{
+    background-color: #1fb344;
+    border-radius: 10px;
+    padding:5px;
+    border: solid;
+    font-family: titulo;
+    font-size:32px
+}
+.body-modal{
+    padding:20px;
+    width:auto;
+    height:auto;
+    background-color: #ffffff;
+}
+form{
+    display: flex;
+    flex-direction: column;
+
+}
+.tituloss{
+
+    font-size: 18px;
+    font-family: titulo;
+}
+.form .text{
+    margin-top:5px;
+    font-size: 25px;
+    color: rgb(41, 41, 41);
+    border: none;
+    border-bottom: 2px solid black;
+    background-color:transparent;
+    border-radius: 5px;
+}
+.form .text:focus{
+    outline: none;
+    background:linear-gradient(to bottom,transparent,#b0b0b0) ;
+
+}
+.link-registro{
+    margin-top: 15px;
+    text-align: center;
+    text-decoration: none;
+    color: #292929;
+    font-size: 30px;
+    border:2px solid #292929;
+    border-radius:10px
+}
+.link-registro:hover{
+
+
+    color: #292929;
+    background-color: #1fb344;
+
+}
+
+
+.footer-modal{
+    display: flex;
+    justify-content: space-between;
+    padding:25px; 
+    border-top:2px solid #292929;
+}
+.footer-modal button{
+    width:30%;
+    font-family: titulo;
+    font-size: 20px;
+    border-radius: 10px;
+    background-color:#1fb344;
+
+}
+
+
+
+
