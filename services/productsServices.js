@@ -51,7 +51,7 @@ class productsService{
     
     async productUpdate(productId, update){
         try{
-            let product = await productSchema.findByIdAndUpdate(productId, update)
+            let product = await productSchema.findOneAndUpdate(productId, update)
             return product
         }
         catch(error){

@@ -45,7 +45,7 @@ class commentsService{
             if(!commentById) return (boom.notFound('Comment not found'))
             if(newComment.email != commentById.email) return (boom.badData('no puedes editar este comentario')) 
 
-            let updateComment = await commentUserSchema.findOneAndUpdate(idComment,newComment.comment); 
+            let updateComment = await commentUserSchema.findByIdAndUpdate(idComment,newComment); 
             return updateComment;
         }
         catch(error){
